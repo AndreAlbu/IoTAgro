@@ -1,6 +1,6 @@
-void enviaDados(int botao, float umidadeSolo, float temperatura, float umidadeAr){
+void enviaDados(int estadoBomba, int umidadeSolo, int temperatura, int umidadeAr){
 
-  ThingSpeak.setField(1, botao);
+  ThingSpeak.setField(1, estadoBomba);
   ThingSpeak.setField(2, umidadeSolo);
   ThingSpeak.setField(3, temperatura);
   ThingSpeak.setField(4, umidadeAr);
