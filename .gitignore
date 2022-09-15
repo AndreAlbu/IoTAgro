@@ -1,0 +1,14 @@
+app-react-native-expo/node_modules/
+app-react-native-expo/.expo/
+app-react-native-expo/dist/
+app-react-native-expo/npm-debug.*
+app-react-native-expo/*.jks
+app-react-native-expo/*.p8
+app-react-native-expo/*.p12
+app-react-native-expo/*.key
+app-react-native-expo/*.mobileprovision
+app-react-native-expo/*.orig.*
+app-react-native-expo/web-build/
+
+# macOS
+app-react-native-expo/.DS_Store
