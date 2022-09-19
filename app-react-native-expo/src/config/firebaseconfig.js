@@ -1,20 +1,18 @@
 import { initializeApp } from "firebase/app";
-import { initializeFirestore } from 'firebase/firestore';
+import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCfqrDIgrLJ114RGBEGKK8aEHVpHc0iM8s",
-  authDomain: "iot-tcc-01.firebaseapp.com",
+  apiKey: `${process.env.REACT_APP_API_KEY}`,
+  authDomain: `${process.env.REACT_APP_AUTH_DOMAIN}`,
   databaseURL: "https://iot-tcc-01-default-rtdb.firebaseio.com",
   projectId: "iot-tcc-01",
-  storageBucket: "iot-tcc-01.appspot.com",
+  storageBucket: `${process.env.REACT_APP_STORAGE_BUCKET}`,
   messagingSenderId: "128491589921",
-  appId: "1:128491589921:web:06cf468832ef203ef3ae60"
+  appId: `${process.env.REACT_APP_APP_ID}`
 };
 
 const app = initializeApp(firebaseConfig);
 
-const database = initializeFirestore(app, {
-  experimentalForceLongPolling: true,
-});;
+const database = getDatabase(app)
 
 export default database;

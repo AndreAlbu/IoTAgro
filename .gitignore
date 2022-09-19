@@ -12,3 +12,5 @@ app-react-native-expo/web-build/
 
 # macOS
 app-react-native-expo/.DS_Store
+
+app-react-native-expo/.env
