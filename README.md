@@ -13,9 +13,9 @@ O IoT Agro é uma aplicação para controle e monitoriamento da plantação de f
 
 ## Stack utilizada
 
-**Front-end:** HTML5, CSS3, React
+**Front-end:** React Native, expo
 
-**Back-end:** Node, Express, FireBase
+**Back-end:** Node, FireBase
 
 
 ## Análise do Dados
