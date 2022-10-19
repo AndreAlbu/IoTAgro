@@ -96,7 +96,7 @@ const Home = ({ navigation }) => {
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.btnDadosCompletos} onPress={hedleButton}>
-                            <Text style={styles.textBtn}>Vizualisar dados Completos</Text>
+                            <Text style={styles.textBtn}>Visualizar dados Completos</Text>
                     </TouchableOpacity>
                 </View>
             </ImageBackground>

@@ -3,12 +3,10 @@ import { StatusBar } from 'expo-status-bar';
 import {decode, encode} from 'base-64';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { 
-  createDrawerNavigator, 
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem, } from '@react-navigation/drawer';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { Image } from "react-native";
 
+import CustomDrawerContent from "./src/component/CustomDrawerContent";
 import Home from "./src/pages/Home";
 import Details from "./src/pages/Details";
 import LimitAdjust from "./src/pages/LimitAdjust";
@@ -16,27 +14,20 @@ import LimitAdjust from "./src/pages/LimitAdjust";
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-function CustomDrawerContent(props) {
-  return (
-    <DrawerContentScrollView {...props}>
-      <DrawerItemList {...props} />
-    </DrawerContentScrollView>
-  );
-}
-
-const Test = () => {
+const DtawerNavigation = () => {
   return(
     <>
       <StatusBar style="light" />
-      <Drawer.Navigator initialRouteName="Home" useLegacyImplementation
-        drawerContent={(props) => <CustomDrawerContent {...props} />}>
+      <Drawer.Navigator
+        initialRouteName="Home"
+        useLegacyImplementation
+        drawerContent={(props) => <CustomDrawerContent {...props} />}
+      >
         <Drawer.Screen
           name="Home"
           component={Home}
           options={{
-            headerShown: false,
-            headerTintColor: "#f92e6a",
-            
+            headerShown: false,            
             drawerItemStyle: {
               display: "none",
             },
@@ -47,8 +38,18 @@ const Test = () => {
           name="Ajustar Limite"
           component={LimitAdjust}
           options={{
-            headerShown: false,
-            headerTintColor: "#f92e6a"
+            drawerItemStyle: {
+              marginLeft: 30
+            },
+            drawerLabelStyle: {
+              fontSize: 22
+            },
+            drawerIcon: ({ size }) => (
+              <Image
+                size={size}
+                source={require('./src/assets/adjust.png')}
+              />
+            )
           }}
         />
       </Drawer.Navigator>
@@ -64,11 +65,11 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Test">
+      <Stack.Navigator initialRouteName="DtawerNavigation">
 
         <Stack.Screen
-          name="Test"
-          component={Test}
+          name="DtawerNavigation"
+          component={DtawerNavigation}
           options={() => ({
             headerShown: false
           })}/>
