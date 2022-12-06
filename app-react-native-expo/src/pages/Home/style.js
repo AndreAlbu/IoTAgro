@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         padding: 8,
         gap: 8,
         marginHorizontal: 16,
-        backgroundColor: 'rgba(225, 225, 225, 0.4)',
+        backgroundColor: 'rgba(138, 138, 138, 0.1)',
     },
 
     valueInfo: {
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
 
         borderRadius:8,
         borderWidth:2,
-        borderColor: '#FFF',
+        borderColor: '#8A8A8A',
         justifyContent:"center",
         alignItems:"center",
     }

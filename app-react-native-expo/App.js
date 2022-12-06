@@ -14,7 +14,7 @@ import LimitAdjust from "./src/pages/LimitAdjust";
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-const DtawerNavigation = () => {
+const DrawerNavigation = () => {
   return(
     <>
       <StatusBar style="light" />
@@ -38,6 +38,7 @@ const DtawerNavigation = () => {
           name="Ajustar Limite"
           component={LimitAdjust}
           options={{
+            headerShown: false,
             drawerItemStyle: {
               marginLeft: 30
             },
@@ -65,11 +66,11 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="DtawerNavigation">
+      <Stack.Navigator initialRouteName="DrawerNavigation">
 
         <Stack.Screen
-          name="DtawerNavigation"
-          component={DtawerNavigation}
+          name="DrawerNavigation"
+          component={DrawerNavigation}
           options={() => ({
             headerShown: false
           })}/>

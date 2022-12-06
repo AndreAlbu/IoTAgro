@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { View, TouchableOpacity, ImageBackground, Image } from "react-native";
 import { ref, onValue, update} from "firebase/database";
-
 import { Text } from '../../../Thema';
+
 import database from "../../config/firebaseconfig";
 import styles from "./style";
 import Menu from "../../component/Menu";
 import BombaLigadaDesligada from "../../component/BombaLigadaDesligada";
+import BottomHalfModal from "../../component/BottomHalfModal";
 
 const Home = ({ navigation }) => {
 
@@ -14,6 +15,8 @@ const Home = ({ navigation }) => {
     const [isLigada, setIsLigada] = useState(false);
     const [isManual, setIsManual] = useState(false);
     const [colorButton, setColorButton] = useState("#810000");
+    const [optionsBomba, setOptionsBomba] = useState(false);
+
 
     useEffect(() => {
         const startCountRef = ref(database, `/`);
@@ -41,18 +44,20 @@ const Home = ({ navigation }) => {
         }
     }, [info])
 
-
+    const close = () => {
+        setOptionsBomba(false)
+    }
 
     const hedleButton = () => {
+        setOptionsBomba(true)
+        // const updates = {};
+        // updates[`/acionamentoManual`] = (
+        //     info.acionamentoManual == 1 || info.acionamentoManual == 0
+        //     ? -1
+        //     : 1
+        // );
 
-        const updates = {};
-        updates[`/acionamentoManual`] = (
-            info.acionamentoManual == 1 || info.acionamentoManual == 0
-            ? -1
-            : 1
-        );
-
-        return update(ref(database), updates);
+        // return update(ref(database), updates);
     }
 
     return(
@@ -89,16 +94,24 @@ const Home = ({ navigation }) => {
 
                     <BombaLigadaDesligada isLigada={isLigada} isManual={isManual}/>
                 
-                    <TouchableOpacity style={[styles.btnBomba, { backgroundColor: colorButton }]} onPress={hedleButton}>
+                    <TouchableOpacity
+                        style={[styles.btnBomba, { backgroundColor: colorButton }]}
+                        onPress={hedleButton}
+                    >
                             <Text style={styles.textBtn}>
                                 {isLigada ? "Desligar" : "Ligar"} bomba
                             </Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.btnDadosCompletos} onPress={hedleButton}>
+                    <TouchableOpacity
+                        style={styles.btnDadosCompletos}
+                        // onPress={hedleButton}
+                    >
                             <Text style={styles.textBtn}>Visualizar dados Completos</Text>
                     </TouchableOpacity>
                 </View>
+
+                <BottomHalfModal visible={optionsBomba} close={close} isOn={isLigada}/>
             </ImageBackground>
         </View>
     )

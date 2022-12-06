@@ -2,9 +2,8 @@ import React from "react";
 import { View, Image } from "react-native";
 import {
     DrawerContentScrollView,
-    DrawerItemList,
-    DrawerItem } from '@react-navigation/drawer';
-import { Text } from "../../Thema";
+    DrawerItemList } from '@react-navigation/drawer';
+import { Text } from "../../../Thema";
 import styles from "./style";
 
 const CustomDrawerContent = (props) => {
@@ -13,8 +12,8 @@ const CustomDrawerContent = (props) => {
             <DrawerContentScrollView {...props}>
                 <View style={styles.drawerMenu}>
                     <Text style={styles.titleDrawer}>IOT Agro</Text>
-                    <View style={styles.helloDrawer}>
-                        <Text style={{fontWeight: '700', fontSize: 20}}>
+                    <View style={styles.salutationDrawer}>
+                        <Text style={styles.helloDrawer}>
                             Olá
                         </Text>
                         <Text style={{fontSize: 20}}>, Usuário</Text>
@@ -25,7 +24,7 @@ const CustomDrawerContent = (props) => {
             </DrawerContentScrollView>
 
             <View style={styles.contentExit}>
-                <Image style={styles.imageExit} source={require('./../assets/exit.png')}/>
+                <Image style={styles.imageExit} source={require('./../../assets/exit.png')}/>
                 <Text style={styles.textExit}>
                     Sair
                 </Text>

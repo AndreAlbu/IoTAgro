@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 
-import { Text } from '../../Thema'
+import { Text } from '../../../Thema'
 import styles from "./style";
 
 const BombaLigadaDesligada = ({ isLigada, isManual}) => {
