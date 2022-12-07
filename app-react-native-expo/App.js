@@ -4,7 +4,7 @@ import {decode, encode} from 'base-64';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Image } from "react-native";
+import { Image, View } from "react-native";
 
 import CustomDrawerContent from "./src/component/CustomDrawerContent";
 import Home from "./src/pages/Home";
@@ -17,7 +17,6 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigation = () => {
   return(
     <>
-      <StatusBar style="light" />
       <Drawer.Navigator
         initialRouteName="Home"
         useLegacyImplementation
@@ -40,10 +39,11 @@ const DrawerNavigation = () => {
           options={{
             headerShown: false,
             drawerItemStyle: {
-              marginLeft: 30
+              marginLeft: 30,
             },
             drawerLabelStyle: {
-              fontSize: 22
+              fontSize: 22,
+              color: '#FFF'
             },
             drawerIcon: ({ size }) => (
               <Image
@@ -66,14 +66,22 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="DrawerNavigation">
+      <StatusBar style="light" />
+      <Stack.Navigator
+        initialRouteName="DrawerNavigation"
+        // screenOptions={}
+        style={{
+          backgroundColor: '#171718'
+        }}
+      >
 
         <Stack.Screen
           name="DrawerNavigation"
           component={DrawerNavigation}
           options={() => ({
             headerShown: false
-          })}/>
+          })}
+        />
 
         <Stack.Screen
           name="Details"

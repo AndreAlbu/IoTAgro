@@ -4,40 +4,32 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         height: '100%',
+        backgroundColor: '#171718'
     },
 
     imageBackground: {
         width: '100%',
         height: '100%',
-        
+        paddingTop: 32,
         flex:1,
-        justifyContent: "center",
-        alignItems: "center"
     },
 
-    
-    imageCircle: {
-        position: 'absolute',
-        left: 42,
-        top: 100,
+    containerImageCircle: {
+        marginTop: 32,
+        display: 'flex',
+        justifyContent: "center",
+        alignItems: "center"
     },
     
     content: {
         width: '100%',
-        height: '50%',
-
-        flex:1,
+        marginTop: 32,
         justifyContent: "center",
         alignItems: "center",
-        paddingBottom: 24, 
-        position: "absolute",
-        bottom: 0,
     },
 
     contentInfo: {
         width: '85%',
-        height: '20%',
-        flex: 1,
         flexDirection: "row",
         justifyContent: "space-evenly",
     },
@@ -68,12 +60,18 @@ const styles = StyleSheet.create({
         fontSize: 12,
     },
 
+    groupBtn: {
+        width: '100%',
+        marginTop: 32,
+        alignItems: "center"
+    },
+
     btnBomba: {
         width:"90%",
-        height: 50,
         marginBottom: 16,
+        paddingVertical: 12,
 
-        borderRadius:4,
+        borderRadius:8,
         borderWidth:1,
         justifyContent:"center",
         alignItems:"center",
@@ -85,7 +83,7 @@ const styles = StyleSheet.create({
 
     btnDadosCompletos: {
         width:"90%",
-        height: 50,
+        paddingVertical: 12,
 
         borderRadius:8,
         borderWidth:2,

@@ -6,9 +6,6 @@ const styles = StyleSheet.create({
         height: 50,
         padding: 10,
         
-        position: "absolute",
-        top: '3.5%',
-        left: 0,
 
         display: "flex",
         flexDirection: "row",

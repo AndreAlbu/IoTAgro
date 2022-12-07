@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     },
 
     textExit: {
-        fontSize: 23
+        fontSize: 23,
     }
 });
 

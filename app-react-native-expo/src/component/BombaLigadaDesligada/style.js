@@ -3,8 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     contentText : {
         width: "100%",
-        bottom: "50%",
-        position: "absolute",
+        marginTop: 16
     },
 
     enableText: {

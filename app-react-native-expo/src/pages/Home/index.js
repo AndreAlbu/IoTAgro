@@ -49,15 +49,7 @@ const Home = ({ navigation }) => {
     }
 
     const hedleButton = () => {
-        setOptionsBomba(true)
-        // const updates = {};
-        // updates[`/acionamentoManual`] = (
-        //     info.acionamentoManual == 1 || info.acionamentoManual == 0
-        //     ? -1
-        //     : 1
-        // );
-
-        // return update(ref(database), updates);
+        setOptionsBomba(true);
     }
 
     return(
@@ -67,10 +59,14 @@ const Home = ({ navigation }) => {
                 style={styles.imageBackground}
                 resizeMode='cover'
             >
-                <Menu navigation={navigation}/>
+                <Menu navigation={navigation} drawer={true}/>
                 
-
-                <Image style={styles.imageCircle} source={require('./../../assets/circle.png')}/>
+                <View style={styles.containerImageCircle}>
+                    <Image
+                        // style={styles.imageCircle}
+                        source={require('./../../assets/circle.png')}
+                    />
+                </View>
                 <View style={styles.content}>
                     <View style={styles.contentInfo}>
                         <View style={styles.info}>
@@ -94,21 +90,23 @@ const Home = ({ navigation }) => {
 
                     <BombaLigadaDesligada isLigada={isLigada} isManual={isManual}/>
                 
-                    <TouchableOpacity
-                        style={[styles.btnBomba, { backgroundColor: colorButton }]}
-                        onPress={hedleButton}
-                    >
+                    <View style={styles.groupBtn}>
+                        <TouchableOpacity
+                            style={[styles.btnBomba, { backgroundColor: colorButton }]}
+                            onPress={hedleButton}
+                        >
                             <Text style={styles.textBtn}>
                                 {isLigada ? "Desligar" : "Ligar"} bomba
                             </Text>
-                    </TouchableOpacity>
+                        </TouchableOpacity>
 
-                    <TouchableOpacity
-                        style={styles.btnDadosCompletos}
-                        // onPress={hedleButton}
-                    >
+                        <TouchableOpacity
+                            style={styles.btnDadosCompletos}
+                            // onPress={hedleButton}
+                        >
                             <Text style={styles.textBtn}>Visualizar dados Completos</Text>
-                    </TouchableOpacity>
+                        </TouchableOpacity>
+                    </View>
                 </View>
 
                 <BottomHalfModal visible={optionsBomba} close={close} isOn={isLigada}/>
