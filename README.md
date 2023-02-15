@@ -2,6 +2,8 @@
 <!-- Badges -->
 <h1 align="center"> IoT Agro</h1>
 
+EM CONSTRUÇÃO
+
 <div align="center">
 
 <a href="https://github.com/AndreAlbu/IoTAgro/repo-size"><img src="https://img.shields.io/github/repo-size/AndreAlbu/IoTAgro" alt="Repo Size"/></a>
