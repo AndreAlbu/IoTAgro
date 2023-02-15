@@ -27,30 +27,28 @@ EM CONSTRUÇÃO
 </div>
 
 </div>
-   
-
 
 <br />
 
 <!-- Table of Contents -->
-# :notebook_with_decorative_cover: Table of Contents
+# :notebook_with_decorative_cover: Índice
 
-- [About the Project](#star2-about-the-project)
-  * [Tech Stack](#space_invader-tech-stack)
+- [Sobre o Projeto](#star2-about-the-project)
+  * [Tecnologias](#space_invader-tecnologias)
   * [Features](#dart-features)
   * [Color Reference](#art-color-reference)
   * [Environment Variables](#key-environment-variables)
-- [Getting Started](#toolbox-getting-started)
+- [Primeiros passos](#toolbox-getting-started)
   * [Prerequisites](#bangbang-prerequisites)
   * [Installation](#gear-installation)
   * [Run Locally](#running-run-locally)
-- [Usage](#eyes-usage)
-- [Roadmap](#compass-roadmap)
-- [Contributing](#wave-contributing)
-  * [Code of Conduct](#scroll-code-of-conduct)
-- [License](#warning-license)
-- [Contact](#handshake-contact)
-- [Acknowledgements](#gem-acknowledgements)
+- [Uso](#eyes-usage)
+- [Roteiro](#compass-roadmap)
+- [Contribuindo](#wave-contributing)
+  * [Código de Conduta](#scroll-code-of-conduct)
+- [Licença](#warning-license)
+- [Contato](#handshake-contact)
+- [Agradecimentos](#gem-acknowledgements)
   
 
 <!-- About the Project -->
@@ -61,11 +59,11 @@ EM CONSTRUÇÃO
 </div>
 
 
-<!-- TechStack -->
-### :space_invader: Tech Stack
+<!-- Tecnologias -->
+### :space_invader: Tecnologias
 
 <details>
-  <summary>Client</summary>
+  <summary>Cliente</summary>
   <ul>
     <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
     <li><a href="https://nextjs.org/">Next.js</a></li>
@@ -75,7 +73,7 @@ EM CONSTRUÇÃO
 </details>
 
 <details>
-  <summary>Server</summary>
+  <summary>Servidor</summary>
   <ul>
     <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
     <li><a href="https://expressjs.com/">Express.js</a></li>
@@ -89,7 +87,7 @@ EM CONSTRUÇÃO
 </details>
 
 <details>
-<summary>Database</summary>
+<summary>Banco de Dados</summary>
   <ul>
     <li><a href="https://www.mysql.com/">MySQL</a></li>
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
@@ -108,7 +106,7 @@ EM CONSTRUÇÃO
   </ul>
 </details>
 
-<!-- Features -->
+<!-- Características -->
 ### :dart: Features
 
 - Feature 1
@@ -126,7 +124,7 @@ EM CONSTRUÇÃO
 | Text Color | ![#EEEEEE](https://via.placeholder.com/10/EEEEEE?text=+) #EEEEEE |
 
 
-<!-- Env Variables -->
+<!-- Variáveis de ambiente -->
 ### :key: Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
@@ -135,10 +133,10 @@ To run this project, you will need to add the following environment variables to
 
 `ANOTHER_API_KEY`
 
-<!-- Getting Started -->
+<!-- Primeiros passos -->
 ## 	:toolbox: Getting Started
 
-<!-- Prerequisites -->
+<!-- Pré-requisitos -->
 ### :bangbang: Prerequisites
 
 This project uses Yarn as package manager
@@ -147,7 +145,7 @@ This project uses Yarn as package manager
  npm install --global yarn
 ```
 
-<!-- Installation -->
+<!-- Instalação -->
 ### :gear: Installation
 
 Install my-project with npm
@@ -158,7 +156,7 @@ Install my-project with npm
 ```
 
 
-<!-- Run Locally -->
+<!-- Executar localmente -->
 ### :running: Run Locally
 
 Clone the project
@@ -186,7 +184,7 @@ Start the server
 ```
 
 
-<!-- Usage -->
+<!-- Uso -->
 ## :eyes: Usage
 
 Use this space to tell a little more about your project and how it can be used. Show additional screenshots, code samples, demos or link to other resources.
@@ -200,7 +198,7 @@ function App() {
 }
 ```
 
-<!-- Roadmap -->
+<!-- Roteiro -->
 ## :compass: Roadmap
 
 * [x] Todo 1
@@ -211,22 +209,22 @@ Contributions are always welcome!
 See `contributing.md` for ways to get started.
 
 
-<!-- Code of Conduct -->
+<!-- Código de Conduta -->
 ### :scroll: Code of Conduct
 
 Please read the [Code of Conduct](https://github.com/Louis3797/awesome-readme-template/blob/master/CODE_OF_CONDUCT.md)
 
 
-<!-- License -->
+<!-- Licença -->
 ## :warning: License
 
 Distributed under the no License. See LICENSE.txt for more information.
 
 
-<!-- Contact -->
+<!-- Contatos -->
 ## :handshake: Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+André Albuquerque - aalbuquerque689@gmail.com
 
 Project Link: [https://github.com/Louis3797/awesome-readme-template](https://github.com/Louis3797/awesome-readme-template)
 
