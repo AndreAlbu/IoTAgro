@@ -11,8 +11,8 @@ const BombaLigadaDesligada = ({ isLigada, isManual}) => {
         <View style={styles.contentText}>
             <View style={styles.enableText}>
                 { isLigada
-                    ? <Text style={[styles.circle, {backgroundColor: "#008156"}]} />
-                    : <Text style={[styles.circle, {backgroundColor: "#EF0000"}]} />
+                    ? <View style={[styles.circle, {backgroundColor: "#008156"}]} />
+                    : <View style={[styles.circle, {backgroundColor: "#EF0000"}]} />
                 }
                 <Text style={styles.textInfo}>
                     Bomba  {isLigada ? "ligada" : "desligada"}

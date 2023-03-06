@@ -42,10 +42,9 @@ const styles = StyleSheet.create({
     },
 
     imageExit: {
-        width: 30,
-        height: 30,
+        fontSize: 30,
         marginRight: 16,
-
+        color: '#FFF'
     },
 
     textExit: {

@@ -14,14 +14,19 @@ const styles = StyleSheet.create({
        
     },
 
-    menuBurguer: {
+    btnMenu: {
         position: 'absolute',
-        left: 10,
+        left: 25,
     },
-
-    imageBurguer: {
-        width: 35,
-        height: 35
+    
+    iconMenu: {
+        fontSize: 35,
+        color: '#FFF'
+    },
+    
+    iconBack: {
+        fontSize: 20,
+        color: '#FFF'
     },
 
     titleMenu: {

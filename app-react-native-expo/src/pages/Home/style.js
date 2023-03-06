@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
     imageBackground: {
         width: '100%',
         height: '100%',
-        paddingTop: 32,
         flex:1,
     },
 

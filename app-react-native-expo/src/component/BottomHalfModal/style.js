@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   imageWarning: {
-    width: 40,
-    height: 40,
+    fontSize: 50,
+    color: '#AF9924'
   },
 
   titleModal: {

@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Image, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
+
 import { Text } from '../../../Thema';
 import Modal from 'react-native-modal';
 import styles from "./style";
@@ -40,7 +42,7 @@ const BottomHalfModal = ({ visible, close, isOn }) => {
         >
           <View style={styles.view}>
               
-              <Image style={styles.imageWarning} source={require('./../../assets/Warning.png')}/>
+              <Icon style={styles.imageWarning} name='warning'/>
               
               <Text style={styles.titleModal}>
                 Deseja ativar o modo automático?

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { TextInput } from "react-native";
-import { View, TouchableOpacity, Alert } from "react-native";
+import { View, TouchableOpacity, Alert,
+    TextInput, Platform } from "react-native";
 import { ref, update} from "firebase/database";
 
 import database from "../../config/firebaseconfig";
@@ -15,16 +15,23 @@ const LimitAdjust = ({ navigation }) => {
     const adjustLimit = () => {
         // console.log(limit);
         const updates = {};
-        updates[`/limit`] = limit;
+        updates[`/limite`] = parseInt(limit);
         update(ref(database), updates);
-        Alert.alert()
+        Alert.alert("Moficado com sucesso")
         setLimit(0)
         return;
     }
 
     return(
-        <View style={styles.container}>
-            <Menu navigation={navigation} back={true}/>
+        <View style={[
+            styles.container,
+            {paddingTop: Platform.OS === "ios" ? 40 : 0}
+        ]}>
+            <Menu
+                navigation={navigation}
+                title={'IOT Agro'}
+                isBack={true}
+            />
 
             <View style={styles.content}>
                 <Text style={styles.titleAdjuste}>Ajustar limite</Text>

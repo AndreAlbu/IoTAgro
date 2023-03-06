@@ -1,24 +1,24 @@
 import React from "react";
 import { View, TouchableOpacity, Image } from "react-native";
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { Text } from '../../../Thema'
 import styles from "./style";
 
-const Menu = ({ navigation, back, drawer }) => {
+const Menu = ({ navigation, isBack, title }) => {
 
     return(
         <View style={styles.menu}>
-            { back &&
-                <TouchableOpacity style={styles.menuBurguer} onPress={() => navigation.navigate("Home")}>
-                    <Image style={styles.imageBurguer} source={require('./../../assets/backHome.png')}/>
+            { isBack ?
+                <TouchableOpacity style={styles.btnMenu} onPress={ () => navigation.navigate('Inicio')}>
+                    <Icon name="arrow-back-ios" style={styles.iconBack}/>
+                </TouchableOpacity>
+            :
+                <TouchableOpacity style={styles.btnMenu} onPress={() => navigation.openDrawer()}>
+                    <Icon name="menu" style={styles.iconMenu}/>
                 </TouchableOpacity>
             }
-            { drawer &&
-                <TouchableOpacity style={styles.menuBurguer} onPress={() => navigation.openDrawer()}>
-                    <Image style={styles.imageBurguer} source={require('./../../assets/menu-burguer.png')}/>
-                </TouchableOpacity>
-            }
-            <Text style={styles.titleMenu}>IOT Agro</Text>
+            <Text style={styles.titleMenu}>{title}</Text>
         </View>
     )
 }

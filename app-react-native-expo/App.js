@@ -1,60 +1,55 @@
 import React from "react";
-import { StatusBar } from 'expo-status-bar';
 import {decode, encode} from 'base-64';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Image, View } from "react-native";
+import { StatusBar } from "react-native";
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import CustomDrawerContent from "./src/component/CustomDrawerContent";
 import Home from "./src/pages/Home";
-import Details from "./src/pages/Details";
 import LimitAdjust from "./src/pages/LimitAdjust";
+import Historic from "./src/pages/Historic";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigation = () => {
   return(
-    <>
-      <Drawer.Navigator
-        initialRouteName="Home"
-        useLegacyImplementation
-        drawerContent={(props) => <CustomDrawerContent {...props} />}
-      >
-        <Drawer.Screen
-          name="Home"
-          component={Home}
-          options={{
-            headerShown: false,            
-            drawerItemStyle: {
-              display: "none",
-            },
-          }}
-        />
+    <Drawer.Navigator
+      initialRouteName="Inicio"
+      useLegacyImplementation
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
+    >
+      <Drawer.Screen
+        name="Inicio"
+        component={Home}
+        options={{
+          headerShown: false,            
+          drawerItemStyle: {
+            display: "none",
+          },
+        }}
+      />
 
-        <Drawer.Screen
-          name="Ajustar Limite"
-          component={LimitAdjust}
-          options={{
-            headerShown: false,
-            drawerItemStyle: {
-              marginLeft: 30,
-            },
-            drawerLabelStyle: {
-              fontSize: 22,
-              color: '#FFF'
-            },
-            drawerIcon: ({ size }) => (
-              <Image
-                size={size}
-                source={require('./src/assets/adjust.png')}
-              />
-            )
-          }}
-        />
-      </Drawer.Navigator>
-    </>
+      <Drawer.Screen
+        name="Ajustar Limite"
+        component={LimitAdjust}
+        options={{
+          headerShown: false,
+          drawerIcon: ({ size }) => (
+              <Icon name='tune-variant' size={size} color='#FFF' />
+          ),
+          drawerItemStyle: {
+            marginLeft: 30,
+          },
+          drawerLabelStyle: {
+            fontSize: 22,
+            color: '#FFF'
+          },
+        }}
+      />
+    </Drawer.Navigator>
   )
 }
 
@@ -66,7 +61,9 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <StatusBar style="light" />
+      <StatusBar
+        backgroundColor="#171718" animated={true} barStyle="light-content"
+      />
       <Stack.Navigator
         initialRouteName="DrawerNavigation"
         // screenOptions={}
@@ -83,11 +80,14 @@ export default function App() {
           })}
         />
 
-        <Stack.Screen
-          name="Details"
-          component={Details}
+      <Stack.Screen
+          name="Historico"
+          component={Historic}
           options={{
-            headerTintColor: "#f92e6a"
+            headerShown: false,            
+            drawerItemStyle: {
+              display: "none",
+            },
           }}
         />
 
