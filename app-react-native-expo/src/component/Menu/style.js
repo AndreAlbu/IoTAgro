@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { RFValue, RFPercentage } from "react-native-responsive-fontsize";
+import { RFValue } from "react-native-responsive-fontsize";
 
 const styles = StyleSheet.create({
     menu: {
