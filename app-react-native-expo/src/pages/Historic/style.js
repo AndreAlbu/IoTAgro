@@ -1,11 +1,12 @@
 import { StyleSheet } from "react-native";
+import { RFValue } from "react-native-responsive-fontsize";
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
         backgroundColor: '#171718',
-        paddingTop: 8,
+        
         paddingBottom: 8
     },
 
@@ -17,49 +18,51 @@ const styles = StyleSheet.create({
 
     fistertitleGraphic: {
         width: '100%',
-        marginTop: 16,
-        marginBottom: 16,
+        marginTop: RFValue(36),
+        marginBottom: RFValue(16),
         textAlign: "left",
-        marginLeft: 24,
-        fontSize: 24
+        marginLeft: RFValue(20),
+        fontWeight: '700',
+        fontSize: RFValue(16)
     },
 
     titleGraphic: {
         width: '100%',
-        marginTop: 40,
-        marginBottom: 16,
+        marginTop: RFValue(32),
+        marginBottom: RFValue(16),
         textAlign: "left",
-        marginLeft: 24,
-        fontSize: 24
+        marginLeft: RFValue(20),
+        fontWeight: '700',
+        fontSize: RFValue(16)
     },
 
     btnDownload: {
-        width:"90%",
-        marginTop: 16,
-        marginBottom: 16,
-        paddingVertical: 12,
+        width:"89.4%",
+        marginTop: RFValue(45),
+        marginBottom: RFValue(24),
+        paddingVertical: RFValue(16),
 
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: '#008156',
-        borderRadius:8,
+        backgroundColor: '#07C888',
+        borderRadius:4,
         borderWidth:1,
         justifyContent:"center",
         alignItems:"center",
     },
 
     btnIcon: {
-        color: "#FFF",
-        fontSize: 32,
-        paddingRight: 24,
-        paddingBottom: 8
+        color: "#030C09",
+        fontSize: RFValue(24),
+        paddingRight: RFValue(16),
     },
 
     textBtn:{
-        fontSize: 24,
+        fontSize: RFValue(16),
         fontWeight: '600',
+        color: '#030C09'
     },
 });
 

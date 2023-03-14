@@ -1,12 +1,13 @@
 import { StyleSheet } from "react-native";
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 const styles = StyleSheet.create({
     container: {
         width: '100%',
         height: '100%',
-        backgroundColor: '#171718'
+        backgroundColor: '#171718',
     },
-
+    
     imageBackground: {
         width: '100%',
         height: '100%',
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
     },
 
     containerImageCircle: {
-        marginTop: 32,
+        marginTop: RFValue(24),
         display: 'flex',
         justifyContent: "center",
         alignItems: "center"
@@ -22,20 +23,20 @@ const styles = StyleSheet.create({
     
     content: {
         width: '100%',
-        marginTop: 32,
+        marginTop: RFValue(31),
         justifyContent: "center",
         alignItems: "center",
     },
 
     contentInfo: {
-        width: '85%',
+        width: '90.4%',
         flexDirection: "row",
         justifyContent: "space-evenly",
     },
 
     info: {
-        width: '32%',
-        height: 120,
+        width: '30.4%',
+        height: RFValue(103),
 
         display: 'flex',
         flexDirection: 'column',
@@ -43,32 +44,42 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         padding: 8,
         gap: 8,
-        marginHorizontal: 16,
-        backgroundColor: 'rgba(138, 138, 138, 0.1)',
+        marginHorizontal: RFValue(16),
+    },
+
+    iconInfo: {
+        width: RFValue(32),
+        height: RFValue(32),
+        marginBottom: RFValue(8)
     },
 
     valueInfo: {
         fontStyle: 'normal',
         fontWeight: '700',
-        fontSize: 19,
+        fontSize: RFValue(24),
     },
 
     descriptionInfo: {
         fontStyle: 'normal',
         fontWeight: '400',
-        fontSize: 12,
+        fontSize: RFValue(11.5),
+    },
+
+    activityIndicator: {
+        marginTop: RFValue(40)
     },
 
     groupBtn: {
         width: '100%',
-        marginTop: 32,
+        marginTop: RFValue(24),
         alignItems: "center"
     },
 
     btnBomba: {
-        width:"90%",
-        marginBottom: 16,
-        paddingVertical: 12,
+        width:"89.4%",
+        marginBottom: RFValue(16),
+        paddingVertical: RFValue(16),
+        paddingHorizontal: RFValue(24),
 
         borderRadius:8,
         borderWidth:1,
@@ -77,18 +88,20 @@ const styles = StyleSheet.create({
     },
 
     textBtn:{
-        fontSize: 23
+        fontWeight: '700',
+        fontSize: RFValue(16)
     },
 
     btnDadosCompletos: {
-        width:"90%",
-        paddingVertical: 12,
-
-        borderRadius:8,
-        borderWidth:2,
-        borderColor: '#8A8A8A',
+        width:"89.4%",
+        paddingVertical: RFValue(16),
+        paddingHorizontal: RFValue(24),
         justifyContent:"center",
         alignItems:"center",
+
+        borderWidth:2,
+        borderRadius:8,
+        borderColor: "#8A8A8A"
     }
 });
 

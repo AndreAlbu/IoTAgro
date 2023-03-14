@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { RFValue } from 'react-native-responsive-fontsize';
 
 const styles = StyleSheet.create({
   modal: {
@@ -7,53 +8,68 @@ const styles = StyleSheet.create({
   },
 
   view: {
-    backgroundColor: '#161616',
-    paddingTop: 32,
-    borderTopRightRadius: 32,
-    borderTopLeftRadius: 32,
     width: '100%',
+    paddingTop: RFValue(32),
+    borderTopRightRadius: RFValue(32),
+    borderTopLeftRadius: RFValue(32),
+    paddingBottom: RFValue(32),
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: '#161616',
   },
   imageWarning: {
-    fontSize: 50,
-    color: '#AF9924'
+    fontSize: RFValue(40.5),
+    color: '#EAC711'
   },
 
   titleModal: {
-    width: '50%',
-    fontSize: 24,
+    width: '60%',
+    fontSize: RFValue(24),
     fontWeight: '500',
     textAlign: "center",
-    marginTop: 32
+    marginTop: RFValue(32),
   },
 
   btnGroupModal: {
-    marginTop: 40,
-    width: '95%',
-    marginBottom: 32
+    marginTop: RFValue(40),
+    width: '89.4%',
   },
 
   btnModal: {
-    paddingVertical: 16,
+    paddingVertical: RFValue(12),
+    paddingHorizontal: RFValue(24),
     alignItems: "center",
-    borderRadius: 8
+    borderRadius: RFValue(4)
   },
-
-  btnTextModal: {
-    fontSize: 16,
-    fontWeight: '700'
-  },
-
+  
   btnYesModal: {
-    backgroundColor: '#008156',
+    backgroundColor: '#07C888',
   },
 
   btnNotModal: {
-    marginTop: 16,
     borderWidth: 1,
-    borderColor: '#8A8A8A'
-  }
+    borderColor: '#8A8A8A',
+    marginTop: RFValue(16),
+  },
+  
+  btnTextModalYes: {
+    fontSize: RFValue(16),
+    fontWeight: '700',
+    color: '#030C09'
+  },
+  
+  btnTextModalYes: {
+    fontSize: RFValue(16),
+    fontWeight: '700',
+    color: '#030C09'
+  },
+  
+  btnTextModalNot: {
+    fontSize: RFValue(16),
+    fontWeight: '700',
+  },
+
+
 });
 
 export default styles;

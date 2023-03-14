@@ -1,26 +1,28 @@
 import { StyleSheet } from "react-native";
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 const styles = StyleSheet.create({
     drawerContent: {
         flex: 1,
         justifyContent: "flex-start",
-        backgroundColor: "#151515",
-        paddingVertical: 50,
+        backgroundColor: "#161616",
+        marginTop: RFValue(24),
+        paddingHorizontal: RFPercentage(0.12),
     },
 
     drawerMenu: {
-        height: 130,
+        marginHorizontal: RFValue(24),
+        paddingBottom: RFValue(40),
         borderBottomWidth: 2,
         borderBottomColor: "#B6B6B4",
-        paddingHorizontal: 0,
-        marginHorizontal: 30
+        marginBottom: RFValue(48)
     },
 
     titleDrawer: {
-        fontWeight: '900',
-        fontSize: 34,
+        fontWeight: '700',
+        fontSize: RFValue(24),
         color: "#05BC7F",
-        marginBottom: 18
+        marginBottom: RFValue(17)
     },
 
     salutationDrawer: {
@@ -30,7 +32,12 @@ const styles = StyleSheet.create({
 
     helloDrawer: {
         fontWeight: '700',
-        fontSize: 20
+        fontSize: RFValue(16)
+    },
+
+    textHellow: {
+        fontWeight: '400',
+        fontSize: RFValue(16)
     },
 
     contentExit: {
@@ -42,13 +49,14 @@ const styles = StyleSheet.create({
     },
 
     imageExit: {
-        fontSize: 30,
-        marginRight: 16,
+        width: RFValue(24),
+        height: RFValue(24),
+        marginRight: RFValue(20),
         color: '#FFF'
     },
 
     textExit: {
-        fontSize: 23,
+        fontSize: RFValue(16),
     }
 });
 

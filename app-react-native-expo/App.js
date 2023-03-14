@@ -3,13 +3,13 @@ import {decode, encode} from 'base-64';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { StatusBar } from "react-native";
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import CustomDrawerContent from "./src/component/CustomDrawerContent";
 import Home from "./src/pages/Home";
 import LimitAdjust from "./src/pages/LimitAdjust";
 import Historic from "./src/pages/Historic";
+import { Image } from "react-native";
+import { RFValue } from "react-native-responsive-fontsize";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -38,14 +38,20 @@ const DrawerNavigation = () => {
         options={{
           headerShown: false,
           drawerIcon: ({ size }) => (
-              <Icon name='tune-variant' size={size} color='#FFF' />
+            <Image
+              style={{
+                width: RFValue(24),
+                height: RFValue(24),
+              }}
+              source={require('./src/assets/ajuste.png')}
+            />
           ),
           drawerItemStyle: {
-            marginLeft: 30,
+            marginLeft: RFValue(20),
           },
           drawerLabelStyle: {
-            fontSize: 22,
-            color: '#FFF'
+            fontSize: RFValue(16),
+            color: 'rgba(232, 232, 232, 0.8)'
           },
         }}
       />
@@ -61,9 +67,6 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <StatusBar
-        backgroundColor="#171718" animated={true} barStyle="light-content"
-      />
       <Stack.Navigator
         initialRouteName="DrawerNavigation"
         // screenOptions={}

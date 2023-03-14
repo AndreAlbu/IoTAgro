@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { View, TouchableOpacity, ImageBackground,
     Image, ActivityIndicator, Platform, StatusBar } from "react-native";
 import { ref, onValue } from "firebase/database";
-import { Text } from '../../../Thema';
+import { LinearGradient } from "expo-linear-gradient";
 
+import { Text } from '../../../Thema';
 import database from "../../config/firebaseconfig";
 import styles from "./style";
 import Menu from "../../component/Menu";
@@ -40,10 +41,10 @@ const Home = ({ navigation }) => {
 
             if (info.estadoBomba == 1) {
                 setIsLigada(true);
-                setColorButton("#810000");
+                setColorButton("#D00000");
             } else {
                 setIsLigada(false);
-                setColorButton("#008156");
+                setColorButton("#07C888");
             }
         }
     }, [info])
@@ -57,16 +58,15 @@ const Home = ({ navigation }) => {
     }
 
     return(
-        <View style={[
-            styles.container,
-            {paddingTop: Platform.OS === "ios" ? 40 : 0}
-        ]}>
+        <View style={styles.container}>
+            <StatusBar translucent backgroundColor="transparent"/>
+
             <ImageBackground
-                source={require('./../../assets/backGroundHome.png')}
-                style={styles.imageBackground}
+                source={require('./../../assets/backgrounHome.png')}
+                style={[styles.imageBackground, {paddingTop: StatusBar.currentHeight + 8}]}
                 resizeMode='cover'
             >
-                <Menu navigation={navigation} drawer={true}/>
+                <Menu navigation={navigation} drawer={true} title="Agro Net"/>
                 
                 <View style={styles.containerImageCircle}>
                     <Image
@@ -75,34 +75,55 @@ const Home = ({ navigation }) => {
                 </View>
                 <View style={styles.content}>
                     <View style={styles.contentInfo}>
-                        <View style={styles.info}>
-                            <Image source={require('./../../assets/ic_round-air.png')} />
+                        <LinearGradient
+                            style={styles.info}
+                            colors={['rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0)']}
+                            start={{ x: 0, y: 0}}
+                            end={{ x: 0, y: 1}}
+                        >
+                            <Image
+                                style={styles.iconInfo}
+                                source={require('./../../assets/ic_round-air.png')} />
                             <Text style={styles.valueInfo}>
                                 {infoLoaded ? info.umidadeAr : <ActivityIndicator size={"small"} color="#FFF"/>}%
                             </Text>
                             <Text style={styles.descriptionInfo}>Umidade do ar</Text>
-                        </View>
+                        </LinearGradient>
 
-                        <View style={styles.info}>
-                            <Image source={require('./../../assets/carbon_soil-moisture-field.png')} />
+                        <LinearGradient
+                            style={styles.info}
+                            colors={['rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0)']}
+                            start={{ x: 0, y: 0}}
+                            end={{ x: 0, y: 1}}
+                        >
+                            <Image
+                                style={styles.iconInfo}
+                                source={require('./../../assets/carbon_soil-moisture-field.png')} />
                             <Text style={styles.valueInfo}>
                                 {infoLoaded ? info.umidadeSolo : <ActivityIndicator size={"small"} color="#FFF"/>}%
                             </Text>
                             <Text style={styles.descriptionInfo}>Umidade do solo</Text>
-                        </View>
+                        </LinearGradient>
 
-                        <View style={styles.info}>
-                            <Image source={require('./../../assets/carbon_temperature-hot.png')} />
+                        <LinearGradient
+                            style={styles.info}
+                            colors={['rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0)']}
+                            start={{ x: 0, y: 0}}
+                            end={{ x: 0, y: 1}}
+                        >
+                            <Image
+                                style={styles.iconInfo}
+                                source={require('./../../assets/carbon_temperature-hot.png')} />
                             <Text style={styles.valueInfo}>
                                 {infoLoaded ? info.temperaturaAr : <ActivityIndicator size={"small"} color="#FFF"/>} C°
                             </Text>
                             <Text style={styles.descriptionInfo}>Temperatura</Text>
-                        </View>
+                        </LinearGradient>
                     </View>
 
                     {infoLoaded ?
                         <BombaLigadaDesligada isLigada={isLigada} isManual={isManual}/> :
-                        <ActivityIndicator size={"large"} style={{marginTop: 16}} color='#FFF'/>
+                        <ActivityIndicator size={"large"} style={styles.activityIndicator} color='#FFF'/>
                     }            
                     <View style={styles.groupBtn}>
                         <TouchableOpacity

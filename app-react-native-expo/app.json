@@ -23,11 +23,17 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-logo.png",
-        "backgroundColor": "#FFFFFF"
-      }
+        "backgroundColor": "#171718"
+      },
+      "package": "com.pedro_almeida.appreactnativeexpo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3d6b0bf9-9901-48c7-863d-63e8c0aabcea"
+      }
     }
   }
 }

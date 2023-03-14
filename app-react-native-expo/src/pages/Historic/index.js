@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View, TouchableOpacity, ScrollView, Platform } from "react-native";
+import { View, TouchableOpacity, ScrollView, StatusBar } from "react-native";
 import Icon from 'react-native-vector-icons/Feather'
 import * as FileSystem from 'expo-file-system';
 import * as Sharing from 'expo-sharing';
@@ -38,7 +38,7 @@ const Historic = ({ navigation }) => {
     return(
         <View style={[
             styles.container,
-            {paddingTop: Platform.OS === "ios" ? 40 : 0}
+            {paddingTop: StatusBar.currentHeight + 8}
         ]}>
             <Menu
                 navigation={navigation}

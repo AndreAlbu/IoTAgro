@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, TouchableOpacity } from 'react-native';
+import { View, Text as TextReact, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 import { Text } from '../../../Thema';
@@ -53,14 +53,14 @@ const BottomHalfModal = ({ visible, close, isOn }) => {
                   style={[styles.btnModal, styles.btnYesModal]}
                   onPress={activateAutomaticMode}
                 >
-                  <Text style={styles.btnTextModal}>Sim, ativar</Text>
+                  <TextReact style={styles.btnTextModalYes}>Sim, ativar</TextReact>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                   style={[styles.btnModal, styles.btnNotModal]}
                   onPress={activateManualMode}
                 >
-                  <Text style={styles.btnTextModal}>
+                  <Text style={styles.btnTextModalNot}>
                     Não, {isOn ? 'desligar' : 'ligar'} bomba
                   </Text>
                 </TouchableOpacity>

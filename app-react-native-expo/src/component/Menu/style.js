@@ -1,10 +1,11 @@
 import { StyleSheet } from "react-native";
+import { RFValue, RFPercentage } from "react-native-responsive-fontsize";
 
 const styles = StyleSheet.create({
     menu: {
         width: '100%',
-        height: 50,
-        padding: 10,
+        height: RFValue(50),
+        padding: RFValue(10),
         
 
         display: "flex",
@@ -16,23 +17,25 @@ const styles = StyleSheet.create({
 
     btnMenu: {
         position: 'absolute',
-        left: 25,
+        left: RFValue(20),
     },
     
     iconMenu: {
-        fontSize: 35,
+        width: RFValue(24),
+        height: RFValue(24),
         color: '#FFF'
     },
     
     iconBack: {
-        fontSize: 20,
+        width: RFValue(24),
+        height: RFValue(24),
         color: '#FFF'
     },
 
     titleMenu: {
         fontStyle: 'normal',
         fontWeight: '700',
-        fontSize: 25,
+        fontSize: RFValue(20),
         color: '#FFF',
     },
 });
