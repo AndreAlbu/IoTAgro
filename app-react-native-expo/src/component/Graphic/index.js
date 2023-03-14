@@ -83,7 +83,6 @@ const Graphic = ({url, field}) => {
                 formatXLabel={formatXLabel}
                 withVerticalLines={false}
                 withShadow={false}
-                segments={3}
                 bezier
               />
             </View>

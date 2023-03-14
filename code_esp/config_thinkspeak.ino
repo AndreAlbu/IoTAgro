@@ -2,8 +2,8 @@ void enviaDados(int estadoBomba, int umidadeSolo, int temperatura, int umidadeAr
 
   ThingSpeak.setField(1, estadoBomba);
   ThingSpeak.setField(2, umidadeSolo);
-  ThingSpeak.setField(3, temperatura);
-  ThingSpeak.setField(4, umidadeAr);
+  ThingSpeak.setField(4, temperatura);
+  ThingSpeak.setField(3, umidadeAr);
    
   int envia = ThingSpeak.writeFields(myChannelNumber, myWriteAPIKey);
   
