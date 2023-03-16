@@ -64,18 +64,35 @@ void desligaBomba(int porta){
 
 void acionamento(int acionamentoManual, int limite, int umidadeSolo, int horaDesligar, int horaAtual){
 
-  if(horaAtual > horaDesligar && estadoBomba == 1){
-    
-    if(horaAtual > 18000 && horaDesligar <= 18000) {
-      
-      Serial.println("Ainda nao e hora");
-      
-    } else {
-      
+  if(horaDesligar > 18000){
+
+    if(horaAtual > horaDesligar && estadoBomba == 1){
+
       acionamentoManual = 0;
       Firebase.setInt("acionamentoManual", acionamentoManual);
-    } 
-  
+      
+    }
+    
+  }
+
+  else{
+
+    if(horaAtual > 18000){
+
+      Serial.println("Hora atual dia anterior");
+    }
+
+    else{
+
+      Serial.println("Hora atual é no mesmo dia");
+
+      if(horaAtual > horaDesligar && estadoBomba == 1){
+
+        acionamentoManual = 0;
+        Firebase.setInt("acionamentoManual", acionamentoManual);
+      }
+    }
+    
   }
   
   if(acionamentoManual == 1){
