@@ -58,12 +58,6 @@ const styles = StyleSheet.create({
     color: '#030C09'
   },
   
-  btnTextModalYes: {
-    fontSize: RFValue(16),
-    fontWeight: '700',
-    color: '#030C09'
-  },
-  
   btnTextModalNot: {
     fontSize: RFValue(16),
     fontWeight: '700',

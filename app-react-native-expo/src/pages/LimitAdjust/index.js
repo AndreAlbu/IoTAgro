@@ -4,7 +4,7 @@ import { ref, update, onValue} from "firebase/database";
 import Slider from 'react-native-simple-slider';
 import { LinearGradient } from "expo-linear-gradient";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-
+import { useFocusEffect } from '@react-navigation/native';
 
 import database from "../../config/firebaseconfig";
 import { Text } from "../../../Thema";
@@ -17,13 +17,22 @@ const LimitAdjust = ({ navigation }) => {
 
     const [sliderValue, setSliderValue] = useState(0);
     const [linearWidith, setLinearWidith] = useState(0);
-
-    useEffect(() => {
+    
+    const fetchData = () => {
         const startCountRef = ref(database, `/limite`);
         onValue(startCountRef, (snapshot) => {
             const data = snapshot.val();
             setSliderValue(Math.round((1024-data)/10.24));
         })
+    }
+    useFocusEffect(
+        React.useCallback(() => {
+            fetchData();
+        }, [])
+    );
+
+    useEffect(() => {
+        fetchData();
     }, []);
 
     const onValueChange = (value) => {

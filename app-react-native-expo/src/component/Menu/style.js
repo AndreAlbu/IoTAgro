@@ -22,14 +22,12 @@ const styles = StyleSheet.create({
     
     iconMenu: {
         width: RFValue(24),
-        height: RFValue(24),
-        color: '#FFF'
+        height: RFValue(24)
     },
     
     iconBack: {
         width: RFValue(24),
         height: RFValue(24),
-        color: '#FFF'
     },
 
     titleMenu: {

@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { View, StatusBar, ActivityIndicator, Alert } from "react-native";
 import { ref, update, onValue} from "firebase/database";
 import ScrollPicker from 'react-native-wheel-scrollview-picker';
+import { useFocusEffect } from '@react-navigation/native';
 
 import { Text } from "../../../Thema";
 import Menu from '../../component/Menu';
@@ -10,10 +11,9 @@ import { RFValue } from "react-native-responsive-fontsize";
 import SaveButton from "../../component/SaveButton";
 import database from "../../config/firebaseconfig";
 
-const renderItem = (data, index, selectedIndex, isHours) => {
+const renderItem = (data, index, select, isHours) => {
 
-    const isActive = data === selectedIndex;
-    const textColor = isActive ? "#07C888" : "rgba(226, 226, 237, 0.16);";
+    const textColor = select ? "#07C888" : "rgba(226, 226, 237, 0.16);";
     
     return (
       <View key={index}>
@@ -36,22 +36,26 @@ const TempAdjust = ({ navigation }) => {
 
     const [selectedHours, setSelectedHours] = useState('');
     const [selectedMinutes, setSelectedMinutes] = useState('');
-    const [selectedPositionHours, setSelectedPositionHours] = useState();
-    const [selectedPositiomMinutes, setSelectedPositiomMinutes] = useState();
 
     const [tempLoaded, setTempLoaded] = useState(false);
 
-
-    useEffect(() => {
+    const fetchData = () => {
         const startCountRef = ref(database, `/tempoMaximo`);
         onValue(startCountRef, (snapshot) => {
             const data = snapshot.val();
             setSelectedHours(hours[Math.floor(data/3600)]);
             setSelectedMinutes(minutes[Math.floor((data%3600)/60)]);
-            setSelectedPositionHours(Math.floor(data/3600));
-            setSelectedPositiomMinutes(Math.floor((data%3600)/60));
             setTempLoaded(true);
         })
+    }
+    useFocusEffect(
+        React.useCallback(() => {
+            fetchData();
+        }, [])
+    );
+
+    useEffect(() => {
+        fetchData();
     }, []);
 
     const handleChangeHours = (value) => {
@@ -94,8 +98,8 @@ const TempAdjust = ({ navigation }) => {
                                 <View style={styles.cardScrollsSelects}>
                                     <ScrollPicker
                                         dataSource={hours}
-                                        selectedIndex={selectedPositionHours}
-                                        renderItem={(d, i) => renderItem(d, i, selectedHours, true)}
+                                        selectedIndex={hours.indexOf(selectedHours)}
+                                        renderItem={(d, i, s) => renderItem(d, i, s, true)}
                                         onValueChange={handleChangeHours}
                                         wrapperHeight={RFValue(150)}
                                         wrapperColor='#171718'
@@ -108,8 +112,8 @@ const TempAdjust = ({ navigation }) => {
                                 <View style={styles.cardScrollsSelects}>
                                     <ScrollPicker
                                         dataSource={minutes}
-                                        selectedIndex={selectedPositiomMinutes}
-                                        renderItem={(d, i) => renderItem(d, i, selectedMinutes)}
+                                        selectedIndex={minutes.indexOf(selectedMinutes)}
+                                        renderItem={(d, i, s) => renderItem(d, i, s)}
                                         onValueChange={handleChangeMinutes}
                                         wrapperHeight={RFValue(150)}
                                         itemHeight={RFValue(48)}

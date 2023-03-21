@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
         width: RFValue(24),
         height: RFValue(24),
         marginRight: RFValue(20),
-        color: '#FFF'
     },
 
     textExit: {
