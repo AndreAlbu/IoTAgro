@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "flex-start",
         backgroundColor: "#161616",
-        marginTop: RFValue(24),
+        paddingTop: RFValue(24),
         paddingHorizontal: RFPercentage(0.12),
     },
 

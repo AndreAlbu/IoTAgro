@@ -1,61 +1,122 @@
-import React, { useState } from "react";
-import { View, TouchableOpacity, Alert,
-    TextInput, Platform } from "react-native";
-import { ref, update} from "firebase/database";
+import React, { useEffect, useState } from "react";
+import { View, StatusBar, Alert } from "react-native";
+import { ref, update, onValue} from "firebase/database";
+import Slider from 'react-native-simple-slider';
+import { LinearGradient } from "expo-linear-gradient";
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+
 
 import database from "../../config/firebaseconfig";
 import { Text } from "../../../Thema";
 import Menu from '../../component/Menu';
 import styles from "./style";
+import SaveButton from "../../component/SaveButton";
+import { RFValue } from "react-native-responsive-fontsize";
 
 const LimitAdjust = ({ navigation }) => {
 
-    const [limit, setLimit] = useState(0);
+    const [sliderValue, setSliderValue] = useState(0);
+    const [linearWidith, setLinearWidith] = useState(0);
+
+    useEffect(() => {
+        const startCountRef = ref(database, `/limite`);
+        onValue(startCountRef, (snapshot) => {
+            const data = snapshot.val();
+            setSliderValue(Math.round((1024-data)/10.24));
+        })
+    }, []);
+
+    const onValueChange = (value) => {
+        setSliderValue(value);
+    };
+
+    const handleLinearLayout = (event) => {
+        const { width } = event.nativeEvent.layout;
+        setLinearWidith(width);
+    };
 
     const adjustLimit = () => {
-        // console.log(limit);
         const updates = {};
-        updates[`/limite`] = parseInt(limit);
+        updates[`/limite`] = parseInt(Math.round(1024-(sliderValue*10.24)));
         update(ref(database), updates);
         Alert.alert("Moficado com sucesso")
-        setLimit(0)
         return;
     }
 
     return(
         <View style={[
             styles.container,
-            {paddingTop: Platform.OS === "ios" ? 40 : 0}
+            {paddingTop: StatusBar.currentHeight + 8}
         ]}>
             <Menu
                 navigation={navigation}
-                title={'IOT Agro'}
+                title={'AGRO Net'}
                 isBack={true}
             />
 
             <View style={styles.content}>
-                <Text style={styles.titleAdjuste}>Ajustar limite</Text>
+                <Text style={styles.titleAdjuste}>Definir limite</Text>
                 <Text style={styles.textInfo}>
-                    Informe qual é o valor limite máximo de umidade que o solo pode chegar
+                Defina qual o limite máximo de umidade para o solo
                 </Text>
 
-                <View style={styles.inpuGroup}>
-                    <Text style={styles.labelInput}>Limite de umidade do solo</Text>
-                    <TextInput
-                        value={limit}
-                        onChangeText={setLimit}
-                        placeholderTextColor={'#C4C4C4'}
-                        style={styles.inputLimit}
-                        placeholder="Digite aqui o valor"
-                        keyboardType="numeric"
-                    />
+                <View style={styles.inpuSlider}>
+                    <View style={styles.containerTooltip}>
+                        <View style={[styles.tooltip, {
+                            left: `${sliderValue-4}%`
+                        }]}>
+                            <Icon name="tooltip" style={styles.iconTooltip}/>
+                            <Text style={[
+                                styles.textTooltip,
+                                {left: sliderValue<10 ? RFValue(9) : (
+                                    sliderValue>=100 ? RFValue(2) : RFValue(5))}
+                            ]}>
+                                {sliderValue}
+                            </Text>
+                        </View>
+                    </View>
+                    <LinearGradient
+                        onLayout={handleLinearLayout}
+                        colors={["#663B15", "#A77A57", "#6572B1", "#162D9D", '#373738']}
+                        locations={[
+                            sliderValue/100<=0.1472?sliderValue/100:0.1472,
+                            sliderValue/100<=0.443?sliderValue/100:0.443,
+                            sliderValue/100<=0.7696?sliderValue/100:0.7696,
+                            sliderValue/100<=0.9277 ? sliderValue/100 : 0.9277,
+                            sliderValue/100]}
+                        start={{ x: 0, y: 0 }}
+                        end={{ x: 1, y: 0 }}
+                        style={styles.gradientSlider}
+                    >
+                        <Slider
+                            style={{ flex: 1}}
+                            minimumValue={0}
+                            maximumValue={100}
+                            step={1}
+                            value={sliderValue}
+                            sliderWidth={linearWidith}
+                            onValueChange={onValueChange}
+                            maximumTrackTintColor='transparent'
+                            minimumTrackTintColor='transparent'
+                            thumbButton={
+                                <View
+                                    style={styles.thumbStyle}
+                                />
+                            }
+                        />
+                    </LinearGradient>
+                    <View style={styles.labelSlider}>
+                        <Text style={styles.textLabelSlider}>muito seco</Text>
+                        <Text style={styles.textLabelSlider}>seco</Text>
+                        <Text style={styles.textLabelSlider}>úmido</Text>
+                        <Text style={styles.textLabelSlider}>muito úmido</Text>
+                    </View>
                 </View>
+                    {/* <Text style={styles.labelInput}>Limite de umidade do solo</Text> */}
             </View>
 
             <View style={styles.btnFlex}>
-                <TouchableOpacity onPress={adjustLimit} style={styles.btnSaveLimit}>
-                    <Text style={styles.txtSave}>Salvar</Text>
-                </TouchableOpacity>
+                <SaveButton handleSave={adjustLimit}/>
             </View>
         </View>
     )
