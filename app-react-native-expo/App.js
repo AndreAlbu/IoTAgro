@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {decode, encode} from 'base-64';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Image, Dimensions } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
+import NetInfo from '@react-native-community/netinfo';
 
 import CustomDrawerContent from "./src/component/CustomDrawerContent";
 import Home from "./src/pages/Home";
 import LimitAdjust from "./src/pages/LimitAdjust";
 import TempAdjust from "./src/pages/TempAdjust";
 import Historic from "./src/pages/Historic";
+import ScreenNotConnections from "./src/component/ScreenNotConnections";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -92,40 +94,53 @@ const DrawerNavigation = () => {
 
 export default function App() {
 
+  const [internetAcessible, setInternetAcessible] = useState(false);
+
   if (!global.btoa) {  global.btoa = encode }
 
   if (!global.atob) { global.atob = decode }
 
+  useEffect(() => {
+    NetInfo.fetch().then(state => {
+      setInternetAcessible(state.isInternetReachable);
+    });
+  }, [])
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="DrawerNavigation"
-        // screenOptions={}
-        style={{
-          backgroundColor: '#171718'
-        }}
-      >
+    <>
+      {internetAcessible ?
+        <NavigationContainer>
+          <Stack.Navigator
+            initialRouteName="DrawerNavigation"
+            // screenOptions={}
+            style={{
+              backgroundColor: '#171718'
+            }}
+          >
 
-        <Stack.Screen
-          name="DrawerNavigation"
-          component={DrawerNavigation}
-          options={() => ({
-            headerShown: false
-          })}
-        />
+            <Stack.Screen
+              name="DrawerNavigation"
+              component={DrawerNavigation}
+              options={() => ({
+                headerShown: false
+              })}
+            />
 
-      <Stack.Screen
-          name="Historico"
-          component={Historic}
-          options={{
-            headerShown: false,            
-            drawerItemStyle: {
-              display: "none",
-            },
-          }}
-        />
+          <Stack.Screen
+              name="Historico"
+              component={Historic}
+              options={{
+                headerShown: false,            
+                drawerItemStyle: {
+                  display: "none",
+                },
+              }}
+            />
 
-      </Stack.Navigator>
-    </NavigationContainer>
+          </Stack.Navigator>
+        </NavigationContainer> :
+        <ScreenNotConnections />
+      }
+    </>
   );
 }
