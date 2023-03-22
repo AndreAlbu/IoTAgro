@@ -1,26 +1,16 @@
-import React, { useState, useEffect, useRef } from "react";
-import { View, StatusBar, ActivityIndicator, Alert } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, StatusBar, ActivityIndicator } from "react-native";
 import { ref, update, onValue} from "firebase/database";
-import ScrollPicker from 'react-native-wheel-scrollview-picker';
 import { useFocusEffect } from '@react-navigation/native';
 
+import ScrollPickerComponent from "../../component/ScrollPickerComponent";
 import { Text } from "../../../Thema";
 import Menu from '../../component/Menu';
 import styles from "./style";
 import { RFValue } from "react-native-responsive-fontsize";
 import SaveButton from "../../component/SaveButton";
 import database from "../../config/firebaseconfig";
-
-const renderItem = (data, index, select, isHours) => {
-
-    const textColor = select ? "#07C888" : "rgba(226, 226, 237, 0.16);";
-    
-    return (
-      <View key={index}>
-        <Text style={[styles.textTime, {color: textColor}]}>{data} {isHours ? 'h' : 'm'}</Text>
-      </View>
-    );
-};
+import FlashMessage, { showMessage } from "react-native-flash-message";
 
 const TempAdjust = ({ navigation }) => {
     
@@ -67,11 +57,30 @@ const TempAdjust = ({ navigation }) => {
     };
 
     const handleSave = () => {
-        const updates = {};
-        updates[`/tempoMaximo`] = parseInt(hours.indexOf(selectedHours)*3600 + minutes.indexOf(selectedMinutes)*60);
-        update(ref(database), updates);
-        Alert.alert("Moficado com sucesso")
-        return;
+        try {
+            const updates = {};
+            updates[`/tempoMaximo`] = parseInt(hours.indexOf(selectedHours)*3600 + minutes.indexOf(selectedMinutes)*60);
+            update(ref(database), updates);
+            showMessage({
+                message: "Limite modificado com sucesso",
+                type: "success",
+                duration: 2000,
+                statusBarHeight: StatusBar.currentHeight + 8,
+                hideOnPress: true,
+                autoHide: true,
+            });
+            return;
+        } catch (error) {
+            showMessage({
+                message: "Ocorreu um erro tente mais tarde",
+                type: "warning",
+                duration: 2000,
+                statusBarHeight: StatusBar.currentHeight + 8,
+                hideOnPress: true,
+                autoHide: true,
+            });
+            return;
+        }
     }
 
     return(
@@ -79,6 +88,7 @@ const TempAdjust = ({ navigation }) => {
             styles.container,
             {paddingTop: StatusBar.currentHeight + 8}
         ]}>
+            <FlashMessage position={'top'}/>
             <Menu
                 navigation={navigation}
                 title={'AGRO Net'}
@@ -95,33 +105,19 @@ const TempAdjust = ({ navigation }) => {
                     <View style={styles.pickerContainer}>
                         {tempLoaded ? 
                             (<>
-                                <View style={styles.cardScrollsSelects}>
-                                    <ScrollPicker
-                                        dataSource={hours}
-                                        selectedIndex={hours.indexOf(selectedHours)}
-                                        renderItem={(d, i, s) => renderItem(d, i, s, true)}
-                                        onValueChange={handleChangeHours}
-                                        wrapperHeight={RFValue(150)}
-                                        wrapperColor='#171718'
-                                        itemHeight={RFValue(48)}
-                                        highlightColor='#454545'
-                                        highlightBorderWidth={2}
-                                    />
-                                </View>
+                                <ScrollPickerComponent
+                                    data={hours}
+                                    isHours={true}
+                                    index={hours.indexOf(selectedHours)}
+                                    handleChange={handleChangeHours}
+                                />
                                 <Text style={[styles.textTime, {color: "#80FFD5"}]}>:</Text>
-                                <View style={styles.cardScrollsSelects}>
-                                    <ScrollPicker
-                                        dataSource={minutes}
-                                        selectedIndex={minutes.indexOf(selectedMinutes)}
-                                        renderItem={(d, i, s) => renderItem(d, i, s)}
-                                        onValueChange={handleChangeMinutes}
-                                        wrapperHeight={RFValue(150)}
-                                        itemHeight={RFValue(48)}
-                                        wrapperColor='#171718'
-                                        highlightColor='#454545'
-                                        highlightBorderWidth={2}
-                                    />
-                                </View>
+                                <ScrollPickerComponent
+                                    data={minutes}
+                                    isHours={false}
+                                    index={minutes.indexOf(selectedMinutes)}
+                                    handleChange={handleChangeMinutes}
+                                />
                             </>) :
 
                             <View style={{width: '90%'}}>

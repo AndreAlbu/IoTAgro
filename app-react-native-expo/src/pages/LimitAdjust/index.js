@@ -12,6 +12,7 @@ import Menu from '../../component/Menu';
 import styles from "./style";
 import SaveButton from "../../component/SaveButton";
 import { RFValue } from "react-native-responsive-fontsize";
+import FlashMessage, { showMessage } from "react-native-flash-message";
 
 const LimitAdjust = ({ navigation }) => {
 
@@ -45,11 +46,31 @@ const LimitAdjust = ({ navigation }) => {
     };
 
     const adjustLimit = () => {
-        const updates = {};
-        updates[`/limite`] = parseInt(Math.round(1024-(sliderValue*10.24)));
-        update(ref(database), updates);
-        Alert.alert("Moficado com sucesso")
-        return;
+        try{
+            const updates = {};
+            updates[`/limite`] = parseInt(Math.round(1024-(sliderValue*10.24)));
+            update(ref(database), updates);
+            update(ref(database), updates);
+            showMessage({
+                message: "Limite modificado com sucesso",
+                type: "success",
+                duration: 2000,
+                statusBarHeight: StatusBar.currentHeight + 8,
+                hideOnPress: true,
+                autoHide: true,
+            });
+            return;
+        } catch (error) {
+            showMessage({
+                message: "Ocorreu um erro tente mais tarde",
+                type: "warning",
+                duration: 2000,
+                statusBarHeight: StatusBar.currentHeight + 8,
+                hideOnPress: true,
+                autoHide: true,
+            });
+            return;
+        }
     }
 
     return(
@@ -57,6 +78,7 @@ const LimitAdjust = ({ navigation }) => {
             styles.container,
             {paddingTop: StatusBar.currentHeight + 8}
         ]}>
+            <FlashMessage position={'top'}/>
             <Menu
                 navigation={navigation}
                 title={'AGRO Net'}

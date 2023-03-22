@@ -38,18 +38,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
     },
-
-    cardScrollsSelects: {
-        width: '45%',
-        height: RFValue(150),
-        paddingHorizontal: RFValue(16)
-    },
-
-    textTime: {
-        // color: '#80FFD5',
-        fontWeight: '700',
-        fontSize: RFValue(32)
-    },
     
     btnFlex: {
         width: '90%',
