@@ -52,7 +52,7 @@ const LimitAdjust = ({ navigation }) => {
             update(ref(database), updates);
             update(ref(database), updates);
             showMessage({
-                message: "Limite modificado com sucesso",
+                message: "Limite de úmidade atualizado",
                 type: "success",
                 duration: 2000,
                 statusBarHeight: StatusBar.currentHeight + 8,
@@ -78,7 +78,6 @@ const LimitAdjust = ({ navigation }) => {
             styles.container,
             {paddingTop: StatusBar.currentHeight + 8}
         ]}>
-            <FlashMessage position={'top'}/>
             <Menu
                 navigation={navigation}
                 title={'AGRO Net'}

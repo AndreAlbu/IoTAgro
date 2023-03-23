@@ -62,7 +62,7 @@ const TempAdjust = ({ navigation }) => {
             updates[`/tempoMaximo`] = parseInt(hours.indexOf(selectedHours)*3600 + minutes.indexOf(selectedMinutes)*60);
             update(ref(database), updates);
             showMessage({
-                message: "Limite modificado com sucesso",
+                message: "Tempo maximo de operação de bomba atualizado",
                 type: "success",
                 duration: 2000,
                 statusBarHeight: StatusBar.currentHeight + 8,
@@ -88,7 +88,6 @@ const TempAdjust = ({ navigation }) => {
             styles.container,
             {paddingTop: StatusBar.currentHeight + 8}
         ]}>
-            <FlashMessage position={'top'}/>
             <Menu
                 navigation={navigation}
                 title={'AGRO Net'}

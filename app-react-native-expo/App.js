@@ -13,6 +13,7 @@ import LimitAdjust from "./src/pages/LimitAdjust";
 import TempAdjust from "./src/pages/TempAdjust";
 import Historic from "./src/pages/Historic";
 import ScreenNotConnections from "./src/component/ScreenNotConnections";
+import FlashMessage from "react-native-flash-message";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -94,7 +95,7 @@ const DrawerNavigation = () => {
 
 export default function App() {
 
-  const [internetAcessible, setInternetAcessible] = useState(false);
+  const [internetAcessible, setInternetAcessible] = useState(true);
 
   if (!global.btoa) {  global.btoa = encode }
 
@@ -138,6 +139,7 @@ export default function App() {
             />
 
           </Stack.Navigator>
+          <FlashMessage position={'top'}/>
         </NavigationContainer> :
         <ScreenNotConnections />
       }

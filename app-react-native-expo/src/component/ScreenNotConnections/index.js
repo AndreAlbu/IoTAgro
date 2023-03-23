@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { ImageBackground, StatusBar } from "react-native";
+import { ImageBackground, ActivityIndicator } from "react-native";
 import FlashMessage, { showMessage } from "react-native-flash-message";
 
 const ScreenNotConnections = () => {
@@ -14,10 +14,11 @@ const ScreenNotConnections = () => {
 
     return(
         <ImageBackground
-            style={{flex:1}}
+            style={{flex:1, alignItems: "center", justifyContent: "center"}}
             source={require('../../../assets/splashapp2.png')}
             resizeMode="cover"
         >
+            <ActivityIndicator size={"small"} color="#FFF"/>
             <FlashMessage position={'center'}/>
         </ImageBackground>
     )
