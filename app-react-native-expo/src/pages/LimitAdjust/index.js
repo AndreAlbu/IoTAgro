@@ -12,7 +12,7 @@ import Menu from '../../component/Menu';
 import styles from "./style";
 import SaveButton from "../../component/SaveButton";
 import { RFValue } from "react-native-responsive-fontsize";
-import FlashMessage, { showMessage } from "react-native-flash-message";
+import { showMessage } from "react-native-flash-message";
 
 const LimitAdjust = ({ navigation }) => {
 

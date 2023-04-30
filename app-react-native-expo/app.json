@@ -11,6 +11,15 @@
       "resizeMode": "contain",
       "backgroundColor": "#171718"
     },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/adaptive-logo.png",
+          "color": "#171718"
+        }
+      ]
+    ],
     "updates": {
       "fallbackToCacheTimeout": 0
     },
