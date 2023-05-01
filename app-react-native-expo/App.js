@@ -141,6 +141,7 @@ export default function App() {
         setDoc(tokensRef, { token });
       })
       .catch((error) => {
+        alert(error);
         console.log(error);
       })
   }, []);
