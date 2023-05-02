@@ -7,9 +7,9 @@ import { Image, Dimensions } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import NetInfo from '@react-native-community/netinfo';
 import * as Notifications from 'expo-notifications';
-import { doc, setDoc } from "firebase/firestore";
+import { ref, push } from "firebase/database";
 
-import { firestore } from "./src/config/firebaseconfig";
+import database from "./src/config/firebaseconfig";
 import CustomDrawerContent from "./src/component/CustomDrawerContent";
 import Home from "./src/pages/Home";
 import LimitAdjust from "./src/pages/LimitAdjust";
@@ -44,10 +44,10 @@ async function registerForPushNotificationsAsync() {
   }
   try {
     token = (await Notifications.getExpoPushTokenAsync()).data;
-    const tokensRef = await doc(firestore, "tokens", token);
-    await setDoc(tokensRef, { token });
+    const tokensRef = ref(database, 'tokens');
+    push(tokensRef, token);
   } catch (error) {
-    alert(error)
+    console.log(error)
   }
 }
 

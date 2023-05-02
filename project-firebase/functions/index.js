@@ -16,8 +16,8 @@ exports.notifyOnStateChange = functions.database.ref("/estadoBomba")
         },
       };
 
-      const tokensSnapshot = await admin.firestore().collection("tokens").get();
-      const tokens = tokensSnapshot.docs.map((doc) => doc.data().token);
+      const tokensSnapshot = await admin.database().ref("tokens").once("value");
+      const tokens = Object.values(tokensSnapshot.val());
 
       // Filter out invalid tokens
       const expoTokens = [];
