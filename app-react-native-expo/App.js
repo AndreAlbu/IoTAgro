@@ -42,9 +42,13 @@ async function registerForPushNotificationsAsync() {
     alert('Failed to get push token for push notification!');
     return;
   }
-  token = (await Notifications.getExpoPushTokenAsync()).data;
-
-  return token;
+  try {
+    token = (await Notifications.getExpoPushTokenAsync()).data;
+    const tokensRef = await doc(firestore, "tokens", token);
+    await setDoc(tokensRef, { token });
+  } catch (error) {
+    alert(error)
+  }
 }
 
 const DrawerNavigation = () => {
@@ -135,15 +139,7 @@ export default function App() {
       setInternetAcessible(state.isInternetReachable);
     });
 
-    registerForPushNotificationsAsync()
-      .then((token) => {
-        const tokensRef = doc(firestore, "tokens", token);
-        setDoc(tokensRef, { token });
-      })
-      .catch((error) => {
-        alert(error);
-        console.log(error);
-      })
+    registerForPushNotificationsAsync();
   }, []);
 
   return (
