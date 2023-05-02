@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { View, TouchableOpacity, ImageBackground,
-    Image, ActivityIndicator, Platform, StatusBar } from "react-native";
+    Image, ActivityIndicator, StatusBar } from "react-native";
 import { ref, onValue } from "firebase/database";
 import { LinearGradient } from "expo-linear-gradient";
 

@@ -10,7 +10,7 @@ import styles from "./style";
 import { RFValue } from "react-native-responsive-fontsize";
 import SaveButton from "../../component/SaveButton";
 import database from "../../config/firebaseconfig";
-import FlashMessage, { showMessage } from "react-native-flash-message";
+import { showMessage } from "react-native-flash-message";
 
 const TempAdjust = ({ navigation }) => {
     
@@ -68,6 +68,7 @@ const TempAdjust = ({ navigation }) => {
                 statusBarHeight: StatusBar.currentHeight + 8,
                 hideOnPress: true,
                 autoHide: true,
+                floating: true,
             });
             return;
         } catch (error) {
@@ -78,6 +79,7 @@ const TempAdjust = ({ navigation }) => {
                 statusBarHeight: StatusBar.currentHeight + 8,
                 hideOnPress: true,
                 autoHide: true,
+                floating: true,
             });
             return;
         }

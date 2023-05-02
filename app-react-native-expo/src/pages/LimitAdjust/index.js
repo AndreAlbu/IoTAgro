@@ -58,6 +58,7 @@ const LimitAdjust = ({ navigation }) => {
                 statusBarHeight: StatusBar.currentHeight + 8,
                 hideOnPress: true,
                 autoHide: true,
+                floating: true,
             });
             return;
         } catch (error) {
@@ -68,6 +69,7 @@ const LimitAdjust = ({ navigation }) => {
                 statusBarHeight: StatusBar.currentHeight + 8,
                 hideOnPress: true,
                 autoHide: true,
+                floating: true,
             });
             return;
         }
