@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "128491589921",
+    "firebase_url": "https://iot-tcc-01-default-rtdb.firebaseio.com",
+    "project_id": "iot-tcc-01",
+    "storage_bucket": "iot-tcc-01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128491589921:android:3c750aefe050b427f3ae60",
+        "android_client_info": {
+          "package_name": "com.pedro_almeida.appreactnativeexpo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "128491589921-9pg0s17fk80vvqdir3mbrftjoqotm8ss.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBF9V_1KIl68oYI4SghW_EEHyIwXA6gVE8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "128491589921-9pg0s17fk80vvqdir3mbrftjoqotm8ss.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

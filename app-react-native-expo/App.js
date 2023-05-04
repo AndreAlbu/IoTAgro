@@ -6,10 +6,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Image, Dimensions } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import NetInfo from '@react-native-community/netinfo';
-import * as Notifications from 'expo-notifications';
-import { ref, push } from "firebase/database";
 
-import database from "./src/config/firebaseconfig";
 import CustomDrawerContent from "./src/component/CustomDrawerContent";
 import Home from "./src/pages/Home";
 import LimitAdjust from "./src/pages/LimitAdjust";
@@ -20,36 +17,6 @@ import FlashMessage from "react-native-flash-message";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
-
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldPlaySound: true,
-    shouldSetBadge: false,
-    shouldShowAlert: true,
-  }),
-});
-
-async function registerForPushNotificationsAsync() {
-  let token;
-  
-  const { status: existingStatus } = await Notifications.getPermissionsAsync();
-  let finalStatus = existingStatus;
-  if (existingStatus !== 'granted') {
-    const { status } = await Notifications.requestPermissionsAsync();
-    finalStatus = status;
-  }
-  if (finalStatus !== 'granted') {
-    alert('Failed to get push token for push notification!');
-    return;
-  }
-  try {
-    token = (await Notifications.getExpoPushTokenAsync()).data;
-    const tokensRef = ref(database, 'tokens');
-    push(tokensRef, token);
-  } catch (error) {
-    console.log(error)
-  }
-}
 
 const DrawerNavigation = () => {
 
@@ -138,8 +105,6 @@ export default function App() {
     NetInfo.fetch().then(state => {
       setInternetAcessible(state.isInternetReachable);
     });
-
-    registerForPushNotificationsAsync();
   }, []);
 
   return (

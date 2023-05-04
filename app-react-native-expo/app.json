@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/logo.png",
+    "scheme": "com.pedro_almeida.appreactnativeexpo",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splashapp2.png",
@@ -34,7 +35,8 @@
         "foregroundImage": "./assets/adaptive-logo.png",
         "backgroundColor": "#171718"
       },
-      "package": "com.pedro_almeida.appreactnativeexpo"
+      "package": "com.pedro_almeida.appreactnativeexpo",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "favicon": "./assets/favicon.png"

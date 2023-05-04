@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { View, TouchableOpacity, ImageBackground,
-    Image, ActivityIndicator, StatusBar } from "react-native";
-import { ref, onValue } from "firebase/database";
+    Image, ActivityIndicator, StatusBar, Platform } from "react-native";
+import { ref, onValue, push } from "firebase/database";
 import { LinearGradient } from "expo-linear-gradient";
+import * as Notifications from 'expo-notifications';
+import * as Device from 'expo-device';
 
 import { Text } from '../../../Thema';
 import database from "../../config/firebaseconfig";
@@ -10,6 +12,37 @@ import styles from "./style";
 import Menu from "../../component/Menu";
 import BombaLigadaDesligada from "../../component/BombaLigadaDesligada";
 import BottomHalfModal from "../../component/BottomHalfModal";
+  
+async function registerForPushNotificationsAsync() {
+    let token;
+    if (Device.isDevice) {
+      const { status: existingStatus } = await Notifications.getPermissionsAsync();
+      let finalStatus = existingStatus;
+      if (existingStatus !== 'granted') {
+        const { status } = await Notifications.requestPermissionsAsync();
+        finalStatus = status;
+      }
+      if (finalStatus !== 'granted') {
+        alert('Failed to get push token for push notification!');
+        return;
+      }
+      token = (await Notifications.getExpoPushTokenAsync()).data;
+      console.log(token);
+    } else {
+      alert('Must use physical device for Push Notifications');
+    }
+  
+    if (Platform.OS === 'android') {
+      Notifications.setNotificationChannelAsync('default', {
+        name: 'default',
+        importance: Notifications.AndroidImportance.MAX,
+        vibrationPattern: [0, 250, 250, 250],
+        lightColor: '#FF231F7C',
+      });
+    }
+  
+    return token;
+}
 
 const Home = ({ navigation }) => {
 
@@ -20,6 +53,37 @@ const Home = ({ navigation }) => {
     const [colorButton, setColorButton] = useState("#008156");
     const [optionsBomba, setOptionsBomba] = useState(false);
 
+    useEffect(() => {
+        Notifications.setNotificationHandler({
+            handleNotification: async () => ({
+              shouldPlaySound: true,
+              shouldSetBadge: false,
+              shouldShowAlert: true,
+            }),
+        });
+
+        registerForPushNotificationsAsync()
+        .then(token => {
+            try {
+                const tokensRef = ref(database, 'tokens');
+        
+                const tokens = [];
+                onValue(tokensRef, (snapshot) => {
+                    snapshot.forEach((childSnapshot) => {
+                      const token = childSnapshot.val();
+                      tokens.push(token);
+                    });
+                }, {
+                    onlyOnce: true // isso faz com que o método onValue pare de ouvir após a primeira leitura dos dados
+                });
+                if (tokens.includes(token)) return;
+                push(tokensRef, token);
+            } catch (error) {
+                alert(error)
+            }
+        })
+        .catch(error => alert('erro no token '+error));
+    }, []);
 
     useEffect(() => {
         const startCountRef = ref(database, `/`);
@@ -27,11 +91,10 @@ const Home = ({ navigation }) => {
             const data = snapshot.val();
             setInfo(data);
             setInfoLoaded(true)
-        })
+        });
     }, []);
 
     useEffect(() => {
-        
         if (info) {
             if (info.acionamentoManual == 0 || info.acionamentoManual == 1) {
                 setIsManual(true);
