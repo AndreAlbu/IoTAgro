@@ -16,8 +16,7 @@
       [
         "expo-notifications",
         {
-          "icon": "./assets/adaptive-logo.png",
-          "color": "#171718"
+          "icon": "./assets/adaptive-logo.png"
         }
       ]
     ],
