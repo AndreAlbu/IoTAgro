@@ -1,12 +1,12 @@
 #include <FirebaseArduino.h>
 #include <ThingSpeak.h>
 #include <ESP8266WiFi.h>
+#include <ESP.h>; 
 #include <DHT.h>
 #include <Adafruit_Sensor.h>
 #include <NTPClient.h>
 #include <WiFiUdp.h>
 #include <time.h>
-
 
 /*
 #define WIFI_SSID "brisa-395282"
@@ -30,7 +30,7 @@ DHT dht(D3, DHT11);
 
 unsigned long tempo;
 
-//Ntp client
+//Ntp cliente
 const long utcOffsetInSeconds = -10800;
 
 WiFiUDP ntpUDP;
@@ -52,9 +52,19 @@ int converteHora(String dateTime);
 int acionamentoManual = 0, acionamentoSensor = 0, estadoBomba = 0, limite = 0, tempoMaximo = 0, horaAtualCalculo = 0, horaDesligar = 0; 
 String horaAtual;
 
+void WDT_(unsigned long Duration){
+  
+  ESP.wdtDisable();
+  unsigned long prevTime = millis();
+  while (millis() - prevTime < Duration) {
+    ESP.wdtEnable(1000);
+  } 
+  
+}
+
 void setup() {
   
-  Serial.begin(9600);
+  Serial.begin(115200);
     
   pinMode(bomba, OUTPUT);
   pinMode(valorSensor, INPUT);
@@ -82,6 +92,8 @@ void setup() {
 
   dht.begin();
   timeClient.begin();
+
+  WDT_(10000);
 }
 
 void loop(){
@@ -95,7 +107,8 @@ void loop(){
     tempoMaximo = Firebase.getInt("tempoMaximo");
     horaDesligar = Firebase.getInt("horaFimRega");
 
-    Serial.println("Acionamento: " + String(acionamentoManual));
+    Serial.print("Acionamento: "); 
+    Serial.println(String(acionamentoManual));
     
     timeClient.forceUpdate();
 
@@ -103,15 +116,26 @@ void loop(){
     
     horaAtualCalculo = converteHora(horaAtual);
 
-    Serial.println("Hora atual: " + String(horaAtualCalculo));
+    Serial.print("Hora atual: ");
+    Serial.println(String(horaAtualCalculo));
 
     umidadeSolo = analogRead(valorSensor);
     temperaturaAr = dht.readTemperature();
     umidadeAr = dht.readHumidity();
-    
-    Serial.println("Umidade Solo: " + String(umidadeSolo));
-    Serial.println("Temperatura: " + String(temperaturaAr));
-    Serial.println("Umidade Ar: " + String(umidadeAr));
+
+    if((temperaturaAr > 80) || (umidadeAr > 100)){
+      
+      Serial.println("Falha na leitura do DHT");
+      temperaturaAr = Firebase.getInt("temperaturaAr");
+      umidadeAr = Firebase.getInt("umidadeAr");
+    }
+ 
+    Serial.print("Umidade Solo: ");
+    Serial.println(String(umidadeSolo));
+    Serial.print("Temperatura: ");
+    Serial.println(String(temperaturaAr));
+    Serial.print("Umidade Ar: ");
+    Serial.println(String(umidadeAr));
 
     acionamento(acionamentoManual, limite, umidadeSolo, horaDesligar, horaAtualCalculo);
 
@@ -125,5 +149,5 @@ void loop(){
       
     }
 
-    delay(2000);
+    delay(3000);
 }

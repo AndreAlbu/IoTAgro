@@ -14,7 +14,8 @@ void enviaDados(int estadoBomba, int umidadeSolo, int temperatura, int umidadeAr
   }
   else{
     
-    Serial.println("Dados nao enviados. HTTP error code " + String(envia));
+    Serial.print("Dados nao enviados. HTTP error code ");
+    Serial.println(String(envia));
   }
   
   tempo = millis();
