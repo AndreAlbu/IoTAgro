@@ -5,10 +5,10 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/logo.png",
-    "scheme": "com.pedro_almeida.appreactnativeexpo",
+    "scheme": "agronet",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splashapp2.png",
+      "image": "./assets/splashapp.png",
       "resizeMode": "contain",
       "backgroundColor": "#171718"
     },
@@ -16,7 +16,8 @@
       [
         "expo-notifications",
         {
-          "icon": "./assets/adaptive-logo.png"
+          "icon": "./assets/adaptive-logo.png",
+          "mode": "production"
         }
       ]
     ],
