@@ -16,29 +16,9 @@ const styles = StyleSheet.create({
         maxWidth: '100%'
     },
 
-    fistertitleGraphic: {
-        width: '100%',
-        marginTop: RFValue(36),
-        marginBottom: RFValue(16),
-        textAlign: "left",
-        marginLeft: RFValue(20),
-        fontWeight: '700',
-        fontSize: RFValue(16)
-    },
-
-    titleGraphic: {
-        width: '100%',
-        marginTop: RFValue(32),
-        marginBottom: RFValue(16),
-        textAlign: "left",
-        marginLeft: RFValue(20),
-        fontWeight: '700',
-        fontSize: RFValue(16)
-    },
-
     btnDownload: {
         width:"89.4%",
-        marginTop: RFValue(45),
+        marginTop: RFValue(24),
         marginBottom: RFValue(24),
         paddingVertical: RFValue(16),
 

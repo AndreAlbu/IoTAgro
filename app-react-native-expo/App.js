@@ -3,7 +3,7 @@ import {decode, encode} from 'base-64';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Image, Dimensions } from "react-native";
+import { Image, Dimensions, StatusBar } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import NetInfo from '@react-native-community/netinfo';
 
@@ -109,6 +109,7 @@ export default function App() {
 
   return (
     <>
+      <StatusBar translucent backgroundColor="#171718" />
       {internetAcessible ?
         <NavigationContainer>
           <Stack.Navigator

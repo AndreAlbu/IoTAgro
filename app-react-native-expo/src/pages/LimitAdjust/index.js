@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, StatusBar, Alert } from "react-native";
+import { View, StatusBar } from "react-native";
 import { ref, update, onValue} from "firebase/database";
 import Slider from 'react-native-simple-slider';
 import { LinearGradient } from "expo-linear-gradient";
