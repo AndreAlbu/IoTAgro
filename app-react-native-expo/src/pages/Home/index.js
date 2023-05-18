@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, TouchableOpacity, ImageBackground,
     Image, ActivityIndicator, StatusBar, Platform } from "react-native";
-import { ref, onValue, push } from "firebase/database";
+import { ref, onValue, push, get } from "firebase/database";
 import { LinearGradient } from "expo-linear-gradient";
 import * as Notifications from 'expo-notifications';
 import * as Device from 'expo-device';
@@ -27,7 +27,6 @@ async function registerForPushNotificationsAsync() {
         return;
       }
       token = (await Notifications.getExpoPushTokenAsync()).data;
-      console.log(token);
     } else {
       alert('Must use physical device for Push Notifications');
     }
@@ -63,21 +62,19 @@ const Home = ({ navigation }) => {
         });
 
         registerForPushNotificationsAsync()
-        .then(token => {
+        .then(async (token) => {
             try {
                 const tokensRef = ref(database, 'tokens');
-        
-                const tokens = [];
-                onValue(tokensRef, (snapshot) => {
-                    snapshot.forEach((childSnapshot) => {
-                      const token = childSnapshot.val();
-                      tokens.push(token);
-                    });
-                });
-                if (tokens.includes(token)) return;
-                push(tokensRef, token);
+                const snapshot = await get(tokensRef);
+                
+                if (!snapshot.exists() || !Object.values(snapshot.val()).includes(token)) {
+                    console.log("Token ainda não foi cadastrado")
+                    push(tokensRef, token);
+                    return;
+                }
+                console.log("Token já foi cadastrado")
             } catch (error) {
-                alert(error)
+                alert("Erro no token de notificação: "+error)
             }
         })
         .catch(error => alert('erro no token '+error));
@@ -88,7 +85,7 @@ const Home = ({ navigation }) => {
         onValue(startCountRef, (snapshot) => {
             const data = snapshot.val();
             setInfo(data);
-            setInfoLoaded(true)
+            setInfoLoaded(true);
         });
     }, []);
 
