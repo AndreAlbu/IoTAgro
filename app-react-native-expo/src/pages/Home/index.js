@@ -73,8 +73,6 @@ const Home = ({ navigation }) => {
                       const token = childSnapshot.val();
                       tokens.push(token);
                     });
-                }, {
-                    onlyOnce: true // isso faz com que o método onValue pare de ouvir após a primeira leitura dos dados
                 });
                 if (tokens.includes(token)) return;
                 push(tokensRef, token);
