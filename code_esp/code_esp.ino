@@ -18,8 +18,8 @@
 unsigned long myChannelNumber = 1854739;
 const char * myWriteAPIKey = "U8BZA001GV3S4YAB";
 
-#define FIREBASE_HOST "iot-tcc-01-default-rtdb.firebaseio.com"
-#define FIREBASE_AUTH "3kwPCNtWRFLUuMzHt7fGD0NxXZqYOkDUy8Nxb36M"
+#define FIREBASE_HOST ""
+#define FIREBASE_AUTH ""
 
 int bomba = D5;
 int valorSensor = A0;
