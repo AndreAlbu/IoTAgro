@@ -15,8 +15,8 @@
 #define WIFI_SSID "brisa-170778"
 #define WIFI_PASSWORD "bekyfz8o"
 
-unsigned long myChannelNumber = 1854739;
-const char * myWriteAPIKey = "U8BZA001GV3S4YAB";
+unsigned long myChannelNumber = ;
+const char * myWriteAPIKey = "";
 
 #define FIREBASE_HOST ""
 #define FIREBASE_AUTH ""
