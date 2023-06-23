@@ -22,7 +22,7 @@ EM CONSTRUÇÃO
   <span> · </span>
     <a href="https://github.com/Louis3797/awesome-readme-template/issues/">Report Bug</a>
   <span> · </span>
-    <a href="https://github.com/Louis3797/awesome-readme-template/issues/">Request Feature</a>
+    <a href="https://github.com/Louis3797/awesome-readme-template/issues/">Request Feature -- Teste</a>
   </h4>
 </div>
 
