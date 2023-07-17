@@ -23,7 +23,7 @@ const LimitAdjust = ({ navigation }) => {
         const startCountRef = ref(database, `/limite`);
         onValue(startCountRef, (snapshot) => {
             const data = snapshot.val();
-            setSliderValue(Math.round((1024-data)/10.24));
+            setSliderValue(Math.round((( (data - 445) - 320 ) / (0 - 320)) * 100));
         })
     }
     useFocusEffect(
@@ -48,7 +48,7 @@ const LimitAdjust = ({ navigation }) => {
     const adjustLimit = () => {
         try{
             const updates = {};
-            updates[`/limite`] = parseInt(Math.round(1024-(sliderValue*10.24)));
+            updates[`/limite`] = parseInt((Math.round(320 +  ((sliderValue / 100) * (0 - 320)))) + 445);
             update(ref(database), updates);
             update(ref(database), updates);
             showMessage({
@@ -82,7 +82,6 @@ const LimitAdjust = ({ navigation }) => {
         ]}>
             <Menu
                 navigation={navigation}
-                title={'AGRO Net'}
                 isBack={true}
             />
 
