@@ -92,7 +92,6 @@ const TempAdjust = ({ navigation }) => {
         ]}>
             <Menu
                 navigation={navigation}
-                title={'AGRO Net'}
                 isBack={true}
             />
 

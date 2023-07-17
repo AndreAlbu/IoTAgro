@@ -18,7 +18,7 @@ const CustomDrawerContent = (props) => {
         <View style={styles.drawerContent}>
             <DrawerContentScrollView {...props}>
                 <View style={styles.drawerMenu}>
-                    <Text style={styles.titleDrawer}>Agro Net</Text>
+                    <Text style={styles.titleDrawer}>AGRONET</Text>
                     <View style={styles.salutationDrawer}>
                         <Text style={styles.helloDrawer}>
                             Olá

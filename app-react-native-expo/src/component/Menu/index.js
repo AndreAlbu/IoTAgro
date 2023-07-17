@@ -23,7 +23,10 @@ const Menu = ({ navigation, isBack, title }) => {
                     />
                 </TouchableOpacity>
             }
-            <Text style={styles.titleMenu}>{title}</Text>
+            {title?
+                <Text style={styles.titleMenu}>{title}</Text> :
+                <Text style={styles.titleMenu}>AGRONET</Text>
+            }
         </View>
     )
 }

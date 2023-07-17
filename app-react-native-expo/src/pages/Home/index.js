@@ -68,11 +68,9 @@ const Home = ({ navigation }) => {
                 const snapshot = await get(tokensRef);
                 
                 if (!snapshot.exists() || !Object.values(snapshot.val()).includes(token)) {
-                    console.log("Token ainda não foi cadastrado")
                     push(tokensRef, token);
                     return;
                 }
-                console.log("Token já foi cadastrado")
             } catch (error) {
                 alert("Erro no token de notificação: "+error)
             }
@@ -124,7 +122,7 @@ const Home = ({ navigation }) => {
                 style={[styles.imageBackground, {paddingTop: StatusBar.currentHeight + 8}]}
                 resizeMode='cover'
             >
-                <Menu navigation={navigation} drawer={true} title="Agro Net"/>
+                <Menu navigation={navigation} drawer={true}/>
                 
                 <View style={styles.containerImageCircle}>
                     <Image
