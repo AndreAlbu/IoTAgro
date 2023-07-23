@@ -107,7 +107,7 @@ void acionamento(int acionamentoManual, int limite, int umidadeSolo, int horaDes
       
   }else{
   
-      if(umidadeSolo >= limite){
+      if(umidadeSolo <= limite){
   
         ligaBomba(bomba, tempoMaximo);
         estadoBomba = 1;
