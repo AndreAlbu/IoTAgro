@@ -1,8 +1,9 @@
  
 <!-- Badges -->
-<h1 align="center"> <strong>AgroNet</strong></h1>
-
-EM CONSTRUÇÃO
+<div align="center">
+ <img src="/img/model_0.png" width="20%">
+ <h1><strong>AgroNet</strong></h1>
+</div>
 
 <div align="center">
 
@@ -102,20 +103,35 @@ O <strong>AgroNet</strong> é um protótipo que consiste em apresentar um sistem
 <!-- Características -->
 ### :dart: Features
 
-- Feature 1
-- Feature 2
-- Feature 3
+- Usabilidade
+- Acesso remoto
+- Dados persistidos
+- Rápida integração
+- Ajustes realizados pelo usuário
 
 <!-- Uso -->
 ## :eyes: Como tudo funciona
 
-Escrver aqui como tudo fnciona
+O <strong>AgroNet</strong> é um sistema que utiliza-se de dois banco de dados, o primeiro e mais conhecido é o Firebase e o segundo é o ThingSpeak IoT. Com o Firebase são armezanados os dados gerados pelo usuário e informações temporários geradas pelo sensor, isso devido o custo de armazenado do Firebase. Já o ThingSpeak ele armazena toda informação gerada no sistema, seja os dados gerados pelo sensor quanto os acionamento realizado pelo aplicativo. 
+
+Para a interface do usuário foi desenvolvido um aplicativo mobile, que concentra todas as informações geradas de forma simples e intuitiva. Além disso, com ele é possível ajustar parâmetros como o limite dos sensores e o tempo máximo que o sensor deve ficar ligado.
+
+Abaixo uma ilustração de como o sistema funciona:
+
+
+<div align="center">
+ <img src="/img/model_0.png" width="20%">
+
+ </div>
+
 
 
 <!-- Licença -->
 ## :warning: License
 
-Fique a vontade para utilizar o código, qualquer dúvida de como utilizar entre em contato!
+Fique a vontade para utilizar o código e se basear na arquitetura 🫡
+
+Para qualquer dúvida entre em contato!
 
 
 <!-- Contatos -->
