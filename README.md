@@ -36,19 +36,9 @@ EM CONSTRUÇÃO
 - [Sobre o Projeto](#star2-about-the-project)
   * [Tecnologias](#space_invader-tecnologias)
   * [Features](#dart-features)
-  * [Color Reference](#art-color-reference)
-  * [Environment Variables](#key-environment-variables)
-- [Primeiros passos](#toolbox-getting-started)
-  * [Prerequisites](#bangbang-prerequisites)
-  * [Installation](#gear-installation)
-  * [Run Locally](#running-run-locally)
-- [Uso](#eyes-usage)
-- [Roteiro](#compass-roadmap)
-- [Contribuindo](#wave-contributing)
-  * [Código de Conduta](#scroll-code-of-conduct)
+- [Uso](#eyes-como-tudo-funciona)
 - [Licença](#warning-license)
 - [Contato](#handshake-contact)
-- [Agradecimentos](#gem-acknowledgements)
   
 
 <!-- About the Project -->
@@ -112,7 +102,7 @@ EM CONSTRUÇÃO
 - Feature 3
 
 <!-- Uso -->
-## :eyes: Uso
+## :eyes: Como tudo funciona
 
 Escrver aqui como tudo fnciona
 
