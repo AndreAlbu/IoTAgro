@@ -120,6 +120,7 @@ Abaixo uma ilustração de como o sistema funciona:
 
 <div align="center">
   <img src="/img/model_5.png" width="60%">
+  <img src="/img/model_6.png" width="60%">
 </div>
 
 De forma bem resumida, o ESP8266 funciona como cerebro do sistema rsrsrs, pois ele é responsável por receber e enviar os dados.
