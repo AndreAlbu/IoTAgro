@@ -1,6 +1,6 @@
  
 <!-- Badges -->
-<h1 align="center"> IoT Agro</h1>
+<h1 align="center"> <strong>AgroNet</strong></h1>
 
 EM CONSTRUÇÃO
 
@@ -33,16 +33,21 @@ EM CONSTRUÇÃO
 <!-- Table of Contents -->
 # :notebook_with_decorative_cover: Índice
 
-- [Sobre o Projeto](#star2-about-the-project)
+- [Sobre o Projeto](#star2-sobre-o-projeto)
   * [Tecnologias](#space_invader-tecnologias)
   * [Features](#dart-features)
-- [Uso](#eyes-como-tudo-funciona)
+- [Como tudo funciona](#eyes-como-tudo-funciona)
 - [Licença](#warning-license)
 - [Contato](#handshake-contact)
   
 
 <!-- About the Project -->
 ## :star2: Sobre o projeto
+
+<div align="center">
+O <strong>AgroNet</strong> é um protótipo que consiste em apresentar um sistema para auxiliar produtores no controle e gerenciamento remoto da irrigação de uma plantação. Por meio do sistema, os produtores têm a possibilidade de realizar consultas históricas sobre a umidade do solo, umidade relativa do ar e temperatura do ar. Além disso, o sistema ainda possibilita o acionamento de bombas para a irrigação de forma automática baseado na leitura de sensores, e também remoto através de um aplicativo mobile.<br><br>
+</div>
+
 
 <div align="center">
    <img alt="Exemplo da Aplicação" src="/img/model_1.png" width="30%">
