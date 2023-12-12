@@ -90,11 +90,8 @@ EM CONSTRUÇÃO
 <details>
 <summary>Banco de Dados</summary>
   <ul>
-    <li><a href="https://www.mysql.com/">MySQL</a></li>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-    <li><a href="https://redis.io/">Redis</a></li>
-    <li><a href="https://neo4j.com/">Neo4j</a></li>
-    <li><a href="https://www.mongodb.com/">MongoDB</a></li>
+    <li><a href="https://thingspeak.com/">ThingSpeak IoT</a></li>
+    <li><a href="https://firebase.google.com/">Firebase</a></li>
   </ul>
 </details>
 
@@ -114,112 +111,16 @@ EM CONSTRUÇÃO
 - Feature 2
 - Feature 3
 
-<!-- Color Reference -->
-### :art: Color Reference
-
-| Color             | Hex                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| Primary Color | ![#222831](https://via.placeholder.com/10/222831?text=+) #222831 |
-| Secondary Color | ![#393E46](https://via.placeholder.com/10/393E46?text=+) #393E46 |
-| Accent Color | ![#00ADB5](https://via.placeholder.com/10/00ADB5?text=+) #00ADB5 |
-| Text Color | ![#EEEEEE](https://via.placeholder.com/10/EEEEEE?text=+) #EEEEEE |
-
-
-<!-- Variáveis de ambiente -->
-### :key: Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file
-
-`API_KEY`
-
-`ANOTHER_API_KEY`
-
-<!-- Primeiros passos -->
-## 	:toolbox: Getting Started
-
-<!-- Pré-requisitos -->
-### :bangbang: Prerequisites
-
-This project uses Yarn as package manager
-
-```bash
- npm install --global yarn
-```
-
-<!-- Instalação -->
-### :gear: Installation
-
-Install my-project with npm
-
-```bash
-  yarn install my-project
-  cd my-project
-```
-
-
-<!-- Executar localmente -->
-### :running: Run Locally
-
-Clone the project
-
-```bash
-  git clone https://github.com/Louis3797/awesome-readme-template.git
-```
-
-Go to the project directory
-
-```bash
-  cd my-project
-```
-
-Install dependencies
-
-```bash
-  yarn install
-```
-
-Start the server
-
-```bash
-  yarn start
-```
-
-
 <!-- Uso -->
-## :eyes: Usage
+## :eyes: Uso
 
-Use this space to tell a little more about your project and how it can be used. Show additional screenshots, code samples, demos or link to other resources.
-
-
-```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
-```
-
-<!-- Roteiro -->
-## :compass: Roadmap
-
-* [x] Todo 1
-* [ ] Todo 2
-
-Contributions are always welcome!
-
-See `contributing.md` for ways to get started.
-
-
-<!-- Código de Conduta -->
-### :scroll: Code of Conduct
-
-Please read the [Code of Conduct](https://github.com/Louis3797/awesome-readme-template/blob/master/CODE_OF_CONDUCT.md)
+Escrver aqui como tudo fnciona
 
 
 <!-- Licença -->
 ## :warning: License
 
-Distributed under the no License. See LICENSE.txt for more information.
+Fique a vontade para utilizar o código, qualquer dúvida de como utilizar entre em contato!
 
 
 <!-- Contatos -->
@@ -227,17 +128,13 @@ Distributed under the no License. See LICENSE.txt for more information.
 
 André Albuquerque - aalbuquerque689@gmail.com
 
-Project Link: [https://github.com/Louis3797/awesome-readme-template](https://github.com/Louis3797/awesome-readme-template)
+Pedro Almeida - pedro.emanuel.lima08@aluno.ifce.edu.br
 
-<!-- Acknowledgments -->
-## :gem: Acknowledgements
+Joyce Sousa - joyce.sousa.monteiro06@aluno.ifce.edu.br
 
-Use this section to mention useful resources and libraries that you have used in your projects.
+Entre no servidor do Discord: [Servidor de dúvidas](https://discord.com/invite/NqhDpGEp)
 
- - [Shields.io](https://shields.io/)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#travel--places)
- - [Readme Template](https://github.com/othneildrew/Best-README-Template)
+Project Link: [AgroNet](https://github.com/AndreAlbu/IoTAgro/)
 
 ## 🤝 Colaboradores
 
