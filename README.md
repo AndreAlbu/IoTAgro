@@ -118,12 +118,11 @@ Para a interface do usuário foi desenvolvido um aplicativo mobile, que concentr
 
 Abaixo uma ilustração de como o sistema funciona:
 
-
 <div align="center">
- <img src="/img/model_0.png" width="20%">
+  <img src="/img/model_5.png" width="60%">
+</div>
 
- </div>
-
+De forma bem resumida, o ESP8266 funciona como cerebro do sistema rsrsrs, pois ele é responsável por receber e enviar os dados.
 
 
 <!-- Licença -->
@@ -170,16 +169,16 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
       </a>
     </td>
     <td align="center">
-      <a href="https://www.linkedin.com/in/joyce-sousa-49a612212/">
-        <img src="https://media.licdn.com/dms/image/D4E03AQFK681eGxt7Dg/profile-displayphoto-shrink_400_400/0/1666901814455?e=1681948800&v=beta&t=uG0wtfzTa_bEPGbDHuBlX-IwtTvWcDTAVYPBvYaMRVE" width="100px;" alt="Foto da Joyce Sousa"/><br>
+       <a href="https://github.com/joycesousam">
+        <img src="https://avatars.githubusercontent.com/u/56177331?v=4" width="100px;" alt="Foto da Joyce Sousa"/><br>
         <sub>
           <b>Joyce Sousa</b>
         </sub>
       </a>
     </td>
     <td align="center">
-      <a href="https://www.linkedin.com/in/robsonf/">
-        <img src="https://media.licdn.com/dms/image/C4E03AQHkOJXV6whimA/profile-displayphoto-shrink_400_400/0/1517719012369?e=1681948800&v=beta&t=iyopkMtUG0i4xA6RYAAoNCrsaiMA3BNmA8fLog9Gkko" width="100px;" alt="Foto do Robson Feitosa"/><br>
+       <a href="https://github.com/robsonf">
+        <img src="https://avatars.githubusercontent.com/u/9002336?v=4" width="100px;" alt="Foto do Robson Feitosa"/><br>
         <sub>
           <b>Robson Feitosa</b>
         </sub>
