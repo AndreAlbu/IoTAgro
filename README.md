@@ -39,6 +39,7 @@
   * [Features](#dart-features)
 - [Como tudo funciona](#eyes-como-tudo-funciona)
 - [Licença](#warning-license)
+- [Artigos Publicados](artigos-ja-publicados)
 - [Contato](#handshake-contact)
   
 
@@ -120,11 +121,14 @@ Abaixo uma ilustração de como o sistema funciona:
 
 <div align="center">
   <img src="/img/model_5.png" width="60%">
-  <img src="/img/model_6.png" width="60%">
 </div>
 
 De forma bem resumida, o ESP8266 funciona como cerebro do sistema rsrsrs, pois ele é responsável por receber e enviar os dados.
 
+<div align="center">
+ <p>Modelo ThingSpeak</p>
+ <img src="/img/model_6.png" width="60%">
+</div>
 
 <!-- Licença -->
 ## :warning: License
@@ -133,6 +137,11 @@ Fique a vontade para utilizar o código e se basear na arquitetura 🫡
 
 Para qualquer dúvida entre em contato!
 
+## 🧪 Artigos já publicados
+
+[IoT para o Gerenciamento Remoto da Irrigação: Análise da Confiabilidade do Sistema](https://sol.sbc.org.br/index.php/encompif/article/view/20431)
+
+[Analisando a Confiabilidade com Efase no Desempenho de Sensores de um Sistema de IOT para o Gerenciamento Remoto da Irrigação](https://revistas.unifacs.br/index.php/rsc/article/view/7704)
 
 <!-- Contatos -->
 ## :handshake: Contact
