@@ -52,12 +52,13 @@ EM CONSTRUÇÃO
   
 
 <!-- About the Project -->
-## :star2: About the Project
+## :star2: Sobre o projeto
 
-<div align="center"> 
-  <img src="https://placehold.co/600x400?text=Your+Screenshot+here" alt="screenshot" />
+<div align="center">
+   <img alt="Exemplo da Aplicação" src="/img/model_1.png" width="30%">
+   <img alt="Exemplo da Aplicação" src="/img/model_2.png" width="30%">
+   <img alt="Exemplo da Aplicação" src="/img/model_3.png" width="30%">
 </div>
-
 
 <!-- Tecnologias -->
 ### :space_invader: Tecnologias
