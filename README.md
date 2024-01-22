@@ -130,6 +130,11 @@ De forma bem resumida, o ESP8266 funciona como cerebro do sistema rsrsrs, pois e
  <img src="/img/model_6.png" width="60%">
 </div>
 
+<div align="center">
+ <p>Esquemático do círcuito eletrônico</p>
+ <img src="/img/model_4.png" width="60%">
+</div>
+
 <!-- Licença -->
 ## :warning: License
 
